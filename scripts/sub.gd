@@ -25,6 +25,7 @@ class State:
 	enum Type {
 		Null,
 		Bob,
+		ImpulseDampen,
 		
 		HorizontalMovementIdle,
 		TurnLeft,
@@ -61,6 +62,24 @@ class Bob extends State:
 		
 	func process_state_changes(sub: Sub):
 		return StateChange.none()
+
+class ImpulseDampen extends State:
+	func _init().("impulse_dampen"): pass
+
+	func physics_process(delta: float, sub: Sub):
+		if sub.impulse_force.y > 0.0:
+			sub.impulse_force.y -= Constants.VERTICAL_DECELERATION
+			if sub.impulse_force.y < 0.0: sub.impulse_force.y = 0.0
+		elif sub.impulse_force.y < 0.0:
+			sub.impulse_force.y += Constants.VERTICAL_DECELERATION
+			if sub.impulse_force.y > 0.0: sub.impulse_force.y = 0.0
+
+		if sub.impulse_force.x > 0.0:
+			sub.impulse_force.x -= Constants.HORIZONTAL_DECELERATION
+			if sub.impulse_force.x < 0.0: sub.impulse_force.x = 0.0
+		elif sub.impulse_force.x < 0.0:
+			sub.impulse_force.x += Constants.HORIZONTAL_DECELERATION
+			if sub.impulse_force.x > 0.0: sub.impulse_force.x = 0.0
 
 class VerticalMovement extends State:
 	func _init(label: String = "unknown_vertical_state").(label): pass
@@ -253,8 +272,10 @@ class HorizontalMovementGraph extends StateGraph:
 var vertical_movement_graph = null
 var horizontal_movement_graph = null
 var bob = state_by_type[State.Type.Bob]
+var impulse_dampen = ImpulseDampen.new()
 
 var motion := Vector2(0.0, 0.0)
+var impulse_force := Vector2(0.0, 0.0)
 
 func _ready():
 	self.vertical_movement_graph = VerticalMovementGraph.new(self)
@@ -264,8 +285,10 @@ func _physics_process(delta: float):
 	vertical_movement_graph.physics_process(delta, self)
 	horizontal_movement_graph.physics_process(delta, self)
 	bob.physics_process(delta, self)
+	impulse_dampen.physics_process(delta, self)
 
 	self.position += self.motion
+	self.position += self.impulse_force
 
 func impulse(force: Vector2):
-	motion += force
+	self.impulse_force = force
