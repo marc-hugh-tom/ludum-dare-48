@@ -1,7 +1,7 @@
 extends Node
 
 var depth = 0
-var scroll_vector = Vector2(0, 20)
+var scroll_vector = Vector2(0, -50)
 
 func get_depth():
 	return(depth)
