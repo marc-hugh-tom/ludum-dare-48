@@ -12,7 +12,7 @@ func explode(victim):
 	print("boom")
 	var explosion = ExplosionResource.instance()
 	explosion.position = position
-	get_tree().get_root().add_child(explosion)
+	get_parent().add_child(explosion)
 	if victim.has_method("damage"):
 		victim.damage(10)
 	if victim.has_method("impulse"):

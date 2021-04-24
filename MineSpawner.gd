@@ -16,7 +16,7 @@ func _ready():
 func spawn_mine():
 	var mine = MineResource.instance()
 	mine.position = select_spawn_point()
-	get_tree().get_root().add_child(mine)
+	get_parent().add_child(mine)
 	print("spawned mine at ", mine.position)
 
 
