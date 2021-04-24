@@ -8,9 +8,9 @@
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/noise_scroll_value = 0.0
-shader_param/noise_visibility = 0.05
-shader_param/base_colour = Color( 0, 0.95, 1, 1 )
-shader_param/gradient_factor = 0.4
+shader_param/noise_visibility = 0.15
+shader_param/base_colour = Color( 0.439216, 0.827451, 0.847059, 1 )
+shader_param/gradient_factor = 0.5
 shader_param/noise_texture = ExtResource( 4 )
 
 [node name="Background" type="Node2D"]

@@ -4,7 +4,7 @@ extends Node2D
 const depth_cutoff = 1000
 # The list of colours you transition from
 var colour_array = [
-	Color("bfd2d9"),
+	Color("70d3d8"),
 	Color("86abc2"),
 	Color("4e7fa2"),
 	Color("004868"),

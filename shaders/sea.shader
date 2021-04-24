@@ -8,13 +8,23 @@ uniform vec4 base_colour : hint_color;
 uniform float gradient_factor : hint_range(0.0, 1.0);
 
 void fragment() {
+	vec4 noise = vec4(1.0, 1.0, 1.0, 1.0);
+
+	// first parallax layer
 	float noise_y = noise_scroll_value + UV.y;
-	if (noise_y > 1.0) {
+	while (noise_y > 1.0) {
 		noise_y -= 1.0;
 	}
 	vec2 noise_uv = vec2(UV.x, noise_y);
-	vec4 noise = texture(noise_texture, noise_uv);
-	
+	noise = noise * texture(noise_texture, noise_uv);
+	// second parallax layer
+	noise_y = noise_scroll_value*2.0 + UV.y;
+	while (noise_y > 1.0) {
+		noise_y -= 1.0;
+	}
+	noise_uv = vec2(1.0-UV.x, noise_y);
+	noise = noise * texture(noise_texture, noise_uv);
+
 	float modifier = (UV.y * gradient_factor);
 	
 	COLOR = vec4(
