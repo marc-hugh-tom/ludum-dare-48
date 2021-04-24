@@ -1,0 +1,13 @@
+# Made using Asset Forge (2.1.2)
+
+:materials
+
+[name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:custom1;color:RGBA(0.738, 0.191, 0.191, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.5;valueB:0.15;]
+[name:wood;color:RGBA(0.840, 0.435, 0.305, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:metalLight;color:RGBA(0.698, 0.686, 0.867, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+
+:models
+
+[name:;collection:Primitives;type:icosphere;position:(0.0000, -0.5000, 0.0000);rotation:(0.0000, 180.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:custom1;]
+[name:;collection:Ships;type:mast_bottom;position:(0.0000, 0.0000, -0.3750);rotation:(0.0000, 90.0000, 270.0000);scale:(1.0000, 0.4500, 1.0000);group:;locked:False;hidden:False;materials:wood+metalLight;]
