@@ -9,7 +9,13 @@ func _ready():
 
 func _on_scrap_body_entered(body):
 	global.increment_scrap(10)
+	play_pickup_noise()
 	destroy()
+
+func play_pickup_noise():
+	$AudioStreamPlayer2D.connect("finished", self,
+		"queue_free", [], CONNECT_ONESHOT)
+	$AudioStreamPlayer2D.play()
 
 func destroy():
 	set_z_index(99)
@@ -19,6 +25,6 @@ func destroy():
 	$Tween.interpolate_property($Sprite, "modulate",
 		Color(1, 1, 1, 1), Color(1, 1, 1, 0), animation_duration,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.connect("tween_all_completed", self,
-		"queue_free", [], CONNECT_ONESHOT)
+#	$Tween.connect("tween_all_completed", self,
+#		"queue_free", [], CONNECT_ONESHOT)
 	$Tween.start()
