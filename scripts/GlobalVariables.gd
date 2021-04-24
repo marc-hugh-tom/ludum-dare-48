@@ -5,6 +5,7 @@ var scroll_vector: Vector2 = Vector2(0, -30)
 var exit_boundary: int = 64
 var scrap: int = 0
 var max_depth: int = 9999
+var max_scrap: int = 9999
 
 func get_depth() -> float:
 	return(depth)
@@ -29,6 +30,7 @@ func get_scrap() -> int:
 
 func increment_scrap(val: int):
 	scrap += val
+	scrap = min(scrap, max_scrap)
 
 func set_scrap(val: int):
 	scrap = val
