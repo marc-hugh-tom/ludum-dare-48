@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "Constants",
+"language": "GDScript",
+"path": "res://scripts/constants.gd"
+}, {
+"base": "Node2D",
+"class": "Sub",
+"language": "GDScript",
+"path": "res://scripts/sub.gd"
+} ]
+_global_script_class_icons={
+"Constants": "",
+"Sub": ""
+}
+
 [application]
 
 config/name="Ludum Dare 48"
