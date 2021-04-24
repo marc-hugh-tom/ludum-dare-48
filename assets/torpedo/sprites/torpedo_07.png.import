@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/torpedo_00.png-6e22ddc48374ac8b9bf2a9e569f99f61.stex"
+path="res://.import/torpedo_07.png-ae270320a2baf3fdc56eb624b1cdb52d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/torpedos/sprites/torpedo_00.png"
-dest_files=[ "res://.import/torpedo_00.png-6e22ddc48374ac8b9bf2a9e569f99f61.stex" ]
+source_file="res://assets/torpedo/sprites/torpedo_07.png"
+dest_files=[ "res://.import/torpedo_07.png-ae270320a2baf3fdc56eb624b1cdb52d.stex" ]
 
 [params]
 
