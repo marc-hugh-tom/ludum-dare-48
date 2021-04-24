@@ -1,7 +1,7 @@
 extends Node2D
 
 # Control how fast the colour changes based on depth (lower is faster)
-const depth_cutoff = 500
+const depth_cutoff = 1000
 # The list of colours you transition from
 var colour_array = [
 	Color("bfd2d9"),
@@ -18,7 +18,7 @@ var debris_array = [
 # Max parallax number layers
 var max_parallax = 3
 # Initial debris spawn simulation
-var debris_init_spawn_time = 12
+var debris_init_spawn_time = 30
 
 ##############################
 
