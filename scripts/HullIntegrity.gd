@@ -22,3 +22,6 @@ func _process(delta):
 		lag_value -= (lag_value - current_value) * update_speed
 	meter.get_material().set_shader_param("current_value", current_value)
 	meter.get_material().set_shader_param("lag_value", lag_value)
+
+func _on_sub_damage_taken(amount):
+	take_damage(amount)

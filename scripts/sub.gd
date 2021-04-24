@@ -277,6 +277,8 @@ var impulse_dampen = ImpulseDampen.new()
 var motion := Vector2(0.0, 0.0)
 var impulse_force := Vector2(0.0, 0.0)
 
+var health = 100.0
+signal damage_taken
 
 func _ready():
 	self.vertical_movement_graph = VerticalMovementGraph.new(self)
@@ -296,3 +298,7 @@ func _physics_process(delta: float):
 
 func impulse(force: Vector2):
 	self.impulse_force = force
+
+func damage(amount):
+	health -= amount
+	emit_signal("damage_taken", amount)
