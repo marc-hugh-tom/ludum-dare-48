@@ -4,17 +4,18 @@
 [ext_resource path="res://assets/sub/sprites/sub_00.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 30.8111
-height = 342.302
+radius = 28.1387
+height = 269.861
 
 [node name="sub" type="KinematicBody2D"]
 scale = Vector2( 0.33, 0.33 )
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -60 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -31 )
+position = Vector2( 8.50352, -28.449 )
 rotation = -1.5708
 shape = SubResource( 1 )
