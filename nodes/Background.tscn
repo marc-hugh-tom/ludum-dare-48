@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Background.gd" type="Script" id=1]
 [ext_resource path="res://shaders/sea.shader" type="Shader" id=2]
 [ext_resource path="res://assets/background/base.png" type="Texture" id=3]
+[ext_resource path="res://assets/noise_texture/T_Random_39.png" type="Texture" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
+shader_param/noise_scroll_value = 0.0
+shader_param/noise_visibility = 0.05
 shader_param/base_colour = Color( 0, 0.95, 1, 1 )
 shader_param/gradient_factor = 0.4
+shader_param/noise_texture = ExtResource( 4 )
 
 [node name="Background" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,13 +21,3 @@ material = SubResource( 1 )
 position = Vector2( 512, 300 )
 scale = Vector2( 32, 18.75 )
 texture = ExtResource( 3 )
-
-[node name="ParallaxLayer1" type="Node2D" parent="."]
-
-[node name="ParallaxLayer2" type="Node2D" parent="."]
-
-[node name="ParallaxLayer3" type="Node2D" parent="."]
-
-[node name="DebrisTimer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true

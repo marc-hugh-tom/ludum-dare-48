@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fish_silhouette.png-f27edbac00246c4286c9a0eefb7950c2.stex"
+path="res://.import/T_Random_39.png-0f847fecaadd0b27ea608c2eff5e2e22.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/background/fish_silhouette.png"
-dest_files=[ "res://.import/fish_silhouette.png-f27edbac00246c4286c9a0eefb7950c2.stex" ]
+source_file="res://assets/noise_texture/T_Random_39.png"
+dest_files=[ "res://.import/T_Random_39.png-0f847fecaadd0b27ea608c2eff5e2e22.stex" ]
 
 [params]
 
