@@ -15,4 +15,4 @@ position = Vector2( 924.535, 558.154 )
 position = Vector2( 91.4767, 523.693 )
 
 [node name="Mine3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 248.799, 469.754 )
+position = Vector2( 461.559, 442.784 )

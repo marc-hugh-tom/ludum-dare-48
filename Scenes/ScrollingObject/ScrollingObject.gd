@@ -1,10 +1,10 @@
-extends KinematicBody2D
+extends Area2D
 
 onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 
-func _physics_process(delta):
-	move_and_collide(global.get_scroll_vector())
+func _process(delta):
+	position += (global.get_scroll_vector() * delta)
 	if gone_out_of_view():
 		destroy()
 
