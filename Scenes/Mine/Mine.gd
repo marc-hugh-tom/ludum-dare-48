@@ -14,4 +14,7 @@ func explode(victim):
 	get_owner().add_child(explosion)
 	if victim.has_method("damage"):
 		victim.damage(10)
+	if victim.has_method("impulse"):
+		var direction = ( victim.position - self.position ).normalized()
+		victim.impulse(direction * 3)
 	destroy()

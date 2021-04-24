@@ -266,3 +266,6 @@ func _physics_process(delta: float):
 	bob.physics_process(delta, self)
 
 	self.position += self.motion
+
+func impulse(force: Vector2):
+	motion += force
