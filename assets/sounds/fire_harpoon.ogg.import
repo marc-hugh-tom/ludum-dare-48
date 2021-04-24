@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fire_harpoon.ogg-7bc042af55ff98ef546b70ad6e465620.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/fire_harpoon.ogg"
+dest_files=[ "res://.import/fire_harpoon.ogg-7bc042af55ff98ef546b70ad6e465620.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

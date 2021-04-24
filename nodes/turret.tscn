@@ -46,4 +46,5 @@ animations = [ {
 script = ExtResource( 33 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+rotation = 1.5708
 frames = SubResource( 1 )

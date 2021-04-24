@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/equip_weapon.ogg-6dfdc481cf42f464da8a71916ed0c0e4.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/equip_weapon.ogg"
+dest_files=[ "res://.import/equip_weapon.ogg-6dfdc481cf42f464da8a71916ed0c0e4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
