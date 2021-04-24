@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/sub.gd" type="Script" id=1]
 [ext_resource path="res://assets/sub/sprites/sub_00.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/sub/sprites/sub_12.png" type="Texture" id=14]
 [ext_resource path="res://assets/sub/sprites/sub_10.png" type="Texture" id=15]
 [ext_resource path="res://assets/sub/sprites/sub_13.png" type="Texture" id=16]
+[ext_resource path="res://nodes/Bubbles.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/sub/sprites/sub_14.png" type="Texture" id=23]
 [ext_resource path="res://assets/sub/sprites/sub_15.png" type="Texture" id=24]
 
@@ -134,6 +135,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 69.697, -42.4242 ), Vector2( -69.697, -42.424 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "flip_r_l"
@@ -223,6 +236,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -69.697, -42.424 ), Vector2( 69.697, -42.4242 ) ]
+}
 
 [node name="sub" type="KinematicBody2D"]
 scale = Vector2( 0.33, 0.33 )
@@ -249,3 +274,6 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flip_l_r = SubResource( 3 )
 anims/flip_r_l = SubResource( 4 )
+
+[node name="Particles2D" parent="." instance=ExtResource( 17 )]
+position = Vector2( 69.697, -42.4242 )
