@@ -7,4 +7,7 @@ func _process(delta):
 
 func update_depth(delta):
 	var current_depth = global.get_depth()
-	global.set_depth(current_depth - global.get_scroll_vector().y * delta)
+	global.set_depth(min(
+		current_depth - global.get_scroll_vector().y * delta,
+		global.get_max_depth()
+	))
