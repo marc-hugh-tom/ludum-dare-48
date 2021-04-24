@@ -3,8 +3,8 @@
 :materials
 
 [name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
-[name:custom1;color:RGBA(0.800, 0.505, 0.505, 1.000);scale:(1.0, 1.0);texture:Metal/metalPlate.png;shader:Default;valueA:0.5;valueB:0.15;]
-[name:custom2;color:RGBA(1.000, 0.000, 0.000, 1.000);scale:(1.0, 1.0);texture:Metal/stripes.png;shader:Default;valueA:0.5;valueB:0.15;]
+[name:custom1;color:RGBA(1.000, 1.000, 1.000, 1.000);scale:(1.0, 1.0);texture:Metal/metalPlate.png;shader:Default;valueA:0.5;valueB:0.15;]
+[name:custom2;color:RGBA(0.621, 0.000, 0.000, 1.000);scale:(1.0, 1.0);texture:Metal/stripes.png;shader:Default;valueA:0.5;valueB:0.15;]
 
 :models
 

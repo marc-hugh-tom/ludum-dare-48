@@ -11,7 +11,10 @@ func set_depth(input_float: float):
 	depth = input_float
 
 func get_scroll_vector() -> Vector2:
-	return(scroll_vector)
+	return scroll_vector
+	
+func get_scroll_dir() -> Vector2:
+	return get_scroll_vector().normalized()
 
 func set_scroll_vector(input_vec: Vector2):
 	scroll_vector = input_vec
