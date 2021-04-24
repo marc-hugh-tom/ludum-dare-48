@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/HUD/WeaponIndicator.gd" type="Script" id=1]
+
+[node name="WeaponIndicator" type="Node2D" groups=[
+"WeaponSlots",
+]]
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 168.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+rect_scale = Vector2( 0.8, 0.8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Primary" type="Label" parent="Panel/Grid"]
+margin_right = 158.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-"
+
+[node name="Secondary" type="Label" parent="Panel/Grid"]
+margin_top = 18.0
+margin_right = 158.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-"
+
+[node name="Tertiary" type="Label" parent="Panel/Grid"]
+margin_top = 36.0
+margin_right = 158.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "-"

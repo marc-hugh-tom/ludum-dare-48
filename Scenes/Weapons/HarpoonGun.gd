@@ -2,6 +2,9 @@ extends Node2D
 
 const Harpoon = preload("res://Scenes/Weapons/Harpoon.tscn")
 
+func get_weapon_name():
+	return "Harpoons"
+
 
 func firing():
 	if $Timer.is_stopped():

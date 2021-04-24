@@ -1,12 +1,5 @@
 extends Node2D
 
-
-signal equip_primary(weapon)
-signal equip_secondary(weapon)
-signal equip_tertiary(weapon)
-
-signal equip_weapon(weapon)
-
 onready var sub = get_parent()
 onready var turret = sub.get_node("Turret")
 
@@ -50,17 +43,16 @@ func equip_primary(weapon_name):
 		primary_weapon.queue_free()
 	var weapon = WeaponResources[weapon_name].instance()
 	primary_weapon = weapon
-	emit_signal("equip_primary", weapon)
 	equip_weapon(weapon)
-
+	get_tree().call_group("WeaponSlots", "equip_primary", weapon)
 
 func equip_secondary(weapon_name):
 	if secondary_weapon:
 		secondary_weapon.queue_free()
 	var weapon = WeaponResources[weapon_name].instance()
 	secondary_weapon = weapon
-	emit_signal("equip_secondary", weapon)
 	equip_weapon(weapon)
+	get_tree().call_group("WeaponSlots", "equip_secondary", weapon)
 	
 
 func equip_tertiary(weapon_name):
@@ -68,13 +60,13 @@ func equip_tertiary(weapon_name):
 		tertiary_weapon.queue_free()
 	var weapon = WeaponResources[weapon_name].instance()
 	tertiary_weapon = weapon
-	emit_signal("equip_tertiary", weapon)
 	equip_weapon(weapon)
+	get_tree().call_group("WeaponSlots", "equip_tertiary", weapon)
 
 
 func equip_weapon(weapon):
 	turret.add_child(weapon)
 	weapon.set_owner(sub.get_owner())
-	emit_signal("equip_weapon", weapon)
 	$AudioStreamPlayer.stream = load("res://assets/sounds/equip_weapon.ogg")
 	$AudioStreamPlayer.play()
+	get_tree().call_group("WeaponSlots", "equip", weapon)
