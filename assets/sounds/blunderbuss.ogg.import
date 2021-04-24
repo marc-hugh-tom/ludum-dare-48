@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/blunderbuss.ogg-8963d6d72b6efa8c5ba80105da0beae3.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/blunderbuss.ogg"
+dest_files=[ "res://.import/blunderbuss.ogg-8963d6d72b6efa8c5ba80105da0beae3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
