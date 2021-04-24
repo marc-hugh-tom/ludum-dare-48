@@ -5,8 +5,8 @@
 [ext_resource path="res://nodes/turret.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 26.438
-height = 251.395
+radius = 30.8111
+height = 342.302
 
 [node name="sub" type="KinematicBody2D"]
 scale = Vector2( 0.33, 0.33 )

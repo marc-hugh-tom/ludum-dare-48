@@ -10,13 +10,12 @@ func _process(delta):
 
 
 func gone_out_of_view() -> bool:
-	var scroll_dir = global.get_scroll_vector().normalized()
-	if scroll_dir.x != 0 and scroll_dir.y != 0:
+	if global.get_scroll_dir().x != 0 and global.get_scroll_dir().y != 0:
 		return has_left_x() and has_left_y()
 	return has_left_x() or has_left_y()
 
 func has_left_x() -> bool:
-	var scroll_x: int = global.get_scroll_vector().normalized().x
+	var scroll_x: int = global.get_scroll_dir().x
 	if scroll_x == 0:
 		return false
 	if scroll_x < 0:
@@ -25,7 +24,7 @@ func has_left_x() -> bool:
 
 
 func has_left_y() -> bool:
-	var scroll_y: int = global.get_scroll_vector().normalized().y
+	var scroll_y: int = global.get_scroll_dir().y
 	if scroll_y == 0:
 		return false
 	if scroll_y < 0:
