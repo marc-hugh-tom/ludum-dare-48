@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/Mine/Mine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Mine/Mine.tscn" type="PackedScene" id=2]
 
 [node name="PlayState" type="Node2D"]
 
-[node name="Mine" parent="." instance=ExtResource( 1 )]
-position = Vector2( 533.397, 559.367 )
+[node name="sub" parent="." instance=ExtResource( 1 )]
+position = Vector2( 481.477, 321.579 )
+
+[node name="Mine" parent="." instance=ExtResource( 2 )]
+position = Vector2( 924.535, 558.154 )
+
+[node name="Mine2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 91.4767, 523.693 )
+
+[node name="Mine3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 248.799, 469.754 )
