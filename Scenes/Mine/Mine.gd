@@ -3,6 +3,8 @@ extends "res://Scenes/ScrollingObject/ScrollingObject.gd"
 const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
 const ScrapResource = preload("res://nodes/scrap.tscn")
 
+var exploded_bool = false
+
 func _on_Mine_body_entered(body):
 	cause_damage(body)
 	explode()
@@ -15,6 +17,7 @@ func cause_damage(victim):
 		victim.impulse(direction * 3)
 
 func explode():
+	exploded_bool = true
 	var explosion = ExplosionResource.instance()
 	explosion.position = position
 	get_parent().call_deferred("add_child", explosion)
@@ -26,5 +29,6 @@ func generate_scrap():
 	get_parent().call_deferred("add_child", scrap)
 
 func take_damage(amount: int = 0):
-	generate_scrap()
+	if not exploded_bool:
+		generate_scrap()
 	explode()
