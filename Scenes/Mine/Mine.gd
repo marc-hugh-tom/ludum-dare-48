@@ -17,13 +17,13 @@ func cause_damage(victim):
 func explode():
 	var explosion = ExplosionResource.instance()
 	explosion.position = position
-	get_parent().add_child(explosion)
-	destroy()
+	get_parent().call_deferred("add_child", explosion)
+	queue_free()
 
 func generate_scrap():
 	var scrap = ScrapResource.instance()
 	scrap.set_position(position)
-	get_parent().add_child(scrap)
+	get_parent().call_deferred("add_child", scrap)
 
 func take_damage(amount: int = 0):
 	generate_scrap()

@@ -11,3 +11,4 @@
 ## Credits
 
 Noise texture from Yoeri "Luos" Vleer: https://luos.itch.io/
+Scrap sound: https://freesound.org/s/378670/
