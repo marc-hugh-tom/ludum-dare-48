@@ -277,6 +277,7 @@ var impulse_dampen = ImpulseDampen.new()
 var motion := Vector2(0.0, 0.0)
 var impulse_force := Vector2(0.0, 0.0)
 
+
 func _ready():
 	self.vertical_movement_graph = VerticalMovementGraph.new(self)
 	self.horizontal_movement_graph = HorizontalMovementGraph.new(self)
@@ -286,7 +287,10 @@ func _physics_process(delta: float):
 	horizontal_movement_graph.physics_process(delta, self)
 	bob.physics_process(delta, self)
 	impulse_dampen.physics_process(delta, self)
-
+	if $AnimatedSprite.get_animation() == 'l' and self.motion.x < 0:
+		$AnimationPlayer.play("flip_l_r")
+	elif $AnimatedSprite.get_animation() == 'r' and self.motion.x > 0:
+		$AnimationPlayer.play("flip_r_l")
 	self.position += self.motion
 	self.position += self.impulse_force
 
