@@ -4,8 +4,8 @@
 [ext_resource path="res://assets/sub/sprites/sub_00.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 28.1387
-height = 269.861
+radius = 30.8111
+height = 342.302
 
 [node name="sub" type="KinematicBody2D"]
 scale = Vector2( 0.33, 0.33 )
