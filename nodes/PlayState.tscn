@@ -16,7 +16,7 @@ position = Vector2( 924.535, 558.154 )
 position = Vector2( 91.4767, 523.693 )
 
 [node name="Mine3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 248.799, 469.754 )
+position = Vector2( 485.531, 429.3 )
 
 [node name="Torpedo" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104.872, 337.626 )
