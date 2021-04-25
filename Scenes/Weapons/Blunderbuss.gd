@@ -19,5 +19,5 @@ func fire(source):
 	var rotation = get_parent().rotation - spread
 	for i in 3:
 		var shrapnel = Shrapnel.instance()
-		shrapnel.start(global_position, rotation + (i*spread))
+		shrapnel.start(global_position, rotation + (i*spread), source)
 		foreground_ref.add_child(shrapnel)

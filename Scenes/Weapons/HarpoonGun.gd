@@ -16,5 +16,5 @@ func fire(source):
 	$Timer.start()
 	$AudioStreamPlayer2D.play()
 	var harpoon = Harpoon.instance()
-	harpoon.start(global_position, get_parent().rotation)
+	harpoon.start(global_position, get_parent().rotation, source)
 	foreground_ref.add_child(harpoon)
