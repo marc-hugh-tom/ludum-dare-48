@@ -1,24 +1,26 @@
 extends Node2D
 
+signal quit
+signal restart
+
 onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 var explosion_array = []
 
 func _ready():
+	global.set_depth(0.0)
 	randomize()
 
-
 func _process(delta):
-	update_depth(delta)
+	if Input.is_action_just_pressed("shop"):
+		get_tree().paused = true
+		$Shop.arsenal = $ViewportContainer/Viewport/Foreground/sub.get_node("Arsenal")
+		$Shop.show()
 	update_explosions(delta)
 
-
-func update_depth(delta):
-	var current_depth = global.get_depth()
-	global.set_depth(min(
-		current_depth - global.get_scroll_vector().y * delta,
-		global.get_max_depth()
-	))
+func _on_Shop_close():
+	get_tree().paused = false
+	$Shop.hide()
 
 func explosion_event(explosion_pos):
 	explosion_array.append({
