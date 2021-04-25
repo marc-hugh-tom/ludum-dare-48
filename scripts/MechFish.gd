@@ -1,15 +1,14 @@
 extends KinematicBody2D
 
-export(NodePath) var player_path
 var speed = 2.0
-var rotation_speed = 1.0
+var rotation_speed = 1.5
 var ref_vec = Vector2.UP
 var collision_shape_starting_pos = Vector2(0, 30)
 var particles_starting_pos = Vector2(0, 60)
 
 ######################################
 
-onready var player = get_node(player_path)
+var player
 const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
 const ScrapResource = preload("res://nodes/scrap.tscn")
 var exploded_bool = false
@@ -18,16 +17,25 @@ var current_rotation = 0
 func _ready():
 	pass # Replace with function body.
 
+func is_mech_fish():
+	return(true)
+
 func _physics_process(delta):
 	var current_dir = ref_vec.rotated(current_rotation)
 	var desired_dir = player.position - position
 	var desired_rotation = current_dir.angle_to(desired_dir)
 	current_rotation += desired_rotation * rotation_speed * delta
 	manage_rotation_animation()
-	var collision = move_and_collide(ref_vec.rotated(current_rotation) * speed)
-	if collision:
-		cause_damage(collision.get_collider())
-		explode()
+	var velocity = move_and_slide(ref_vec.rotated(current_rotation) * speed)
+	position += velocity
+	var slide_count = get_slide_count()
+	if slide_count:
+		for idx in range(slide_count):
+			var collision = get_slide_collision(slide_count - 1)
+			var collider = collision.collider
+			if not collider.has_method("is_mech_fish"):
+				cause_damage(collider)
+				explode()
 
 func manage_rotation_animation():
 	while current_rotation < 0:
