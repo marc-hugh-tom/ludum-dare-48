@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/sub.gd" type="Script" id=1]
 [ext_resource path="res://assets/sub/sprites/sub_00.png" type="Texture" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://assets/sub/sprites/sub_10.png" type="Texture" id=15]
 [ext_resource path="res://assets/sub/sprites/sub_13.png" type="Texture" id=16]
 [ext_resource path="res://nodes/Bubbles.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Weapons/Arsenal.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/sub/sprites/sub_14.png" type="Texture" id=23]
 [ext_resource path="res://assets/sub/sprites/sub_15.png" type="Texture" id=24]
 
@@ -26,11 +25,6 @@ animations = [ {
 "frames": [ ExtResource( 24 ) ],
 "loop": false,
 "name": "r",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": false,
-"name": "l",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 2 ) ],
@@ -42,6 +36,11 @@ animations = [ {
 "loop": false,
 "name": "flip_l_r",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "l",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -77,19 +76,19 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CollisionShape2D:shape:height")
+tracks/2/path = NodePath("top_turret:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 272.726, 40.0, 272.726 ]
+"values": [ Vector2( -63.6364, 21.2121 ), Vector2( 63.636, 21.212 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Particles2D:position")
+tracks/3/path = NodePath("buttom_turret:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -98,31 +97,55 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 69.697, -42.4242 ), Vector2( -69.697, -42.424 ) ]
+"values": [ Vector2( -63.6364, 75.7576 ), Vector2( 63.636, 75.758 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Turret:position")
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -89.7729, -46.2122 ), Vector2( 94.8305, -45.4095 ) ]
+"values": [ 272.726, 40.0, 272.726 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Turret:scale")
+tracks/5/path = NodePath("top_turret:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.15, 0.4, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.5 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("buttom_turret:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 69.697, -42.4242 ), Vector2( -69.697, -42.424 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -154,19 +177,19 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("CollisionShape2D:shape:height")
+tracks/2/path = NodePath("top_turret:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 272.726, 40.0, 272.726 ]
+"values": [ Vector2( 63.636, 21.212 ), Vector2( -63.6364, 21.2121 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Particles2D:position")
+tracks/3/path = NodePath("buttom_turret:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -175,47 +198,76 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -69.697, -42.424 ), Vector2( 69.697, -42.4242 ) ]
+"values": [ Vector2( 63.636, 75.758 ), Vector2( -63.6364, 75.7576 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Turret:position")
+tracks/4/path = NodePath("CollisionShape2D:shape:height")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 93.6266, -46.2122 ), Vector2( -89.7729, -45.8108 ) ]
+"values": [ 272.726, 40.0, 272.726 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Turret:scale")
+tracks/5/path = NodePath("top_turret:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.35, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.5 ) ]
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("buttom_turret:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.3 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Particles2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -69.697, -42.424 ), Vector2( 69.697, -42.4242 ) ]
 }
 
 [node name="sub" type="KinematicBody2D"]
 scale = Vector2( 0.33, 0.33 )
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-animation = "r"
-
-[node name="Turret" parent="." instance=ExtResource( 3 )]
-position = Vector2( 94.8305, -45.4095 )
+[node name="top_turret" parent="." instance=ExtResource( 3 )]
+position = Vector2( -63.6364, 21.2121 )
 scale = Vector2( 0.5, 0.5 )
 
+[node name="buttom_turret" parent="." instance=ExtResource( 3 )]
+position = Vector2( -63.6364, 75.7576 )
+scale = Vector2( 0.5, 0.5 )
+is_bottom = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "l"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 10.9848, -25.3788 )
+position = Vector2( 0, 48.4848 )
 rotation = -1.5708
 shape = SubResource( 2 )
 
@@ -224,6 +276,4 @@ anims/flip_l_r = SubResource( 3 )
 anims/flip_r_l = SubResource( 4 )
 
 [node name="Particles2D" parent="." instance=ExtResource( 17 )]
-position = Vector2( -69.697, -42.424 )
-
-[node name="Arsenal" parent="." instance=ExtResource( 18 )]
+position = Vector2( 69.697, -42.4242 )
