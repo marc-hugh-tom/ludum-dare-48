@@ -37,3 +37,13 @@ func set_scrap(val: int):
 
 func get_max_depth() -> int:
 	return(max_depth)
+
+func _process(delta):
+	update_depth(delta)
+
+func update_depth(delta):
+	var current_depth = get_depth()
+	set_depth(min(
+		current_depth - get_scroll_vector().y * delta,
+		get_max_depth()
+	))
