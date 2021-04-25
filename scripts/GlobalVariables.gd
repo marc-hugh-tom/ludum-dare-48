@@ -56,3 +56,14 @@ func set_health(val: float):
 
 func increment_health(val: float):
 	health += val
+
+func _process(delta):
+	update_depth(delta)
+
+func update_depth(delta):
+	var current_depth = get_depth()
+	set_depth(min(
+		current_depth - get_scroll_vector().y * delta,
+		get_max_depth()
+	))
+
