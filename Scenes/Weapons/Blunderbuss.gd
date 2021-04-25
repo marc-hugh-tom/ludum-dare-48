@@ -1,6 +1,7 @@
 extends Node2D
 
 const Shrapnel = preload("res://Scenes/Weapons/Shrapnel.tscn")
+var foreground_ref
 
 func get_weapon_name():
 	return "Blunderbuss"
@@ -18,5 +19,5 @@ func fire(source):
 	var rotation = get_parent().rotation - spread
 	for i in 3:
 		var shrapnel = Shrapnel.instance()
-		shrapnel.start(global_position, rotation + (i*spread), source)
-		get_owner().add_child(shrapnel)
+		shrapnel.start(global_position, rotation + (i*spread))
+		foreground_ref.add_child(shrapnel)

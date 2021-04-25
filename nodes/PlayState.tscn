@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
@@ -9,21 +9,58 @@
 [ext_resource path="res://nodes/DepthCounter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Mine/MineSpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/HUD/WeaponIndicator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/background/base.png" type="Texture" id=10]
+[ext_resource path="res://shaders/global.shader" type="Shader" id=11]
+[ext_resource path="res://test.png" type="Texture" id=12]
 
-[node name="PlayState" type="Node2D"]
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("ViewportContainer/Viewport")
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 11 )
+shader_param/no_explosion = null
+shader_param/viewport_texture = SubResource( 1 )
+shader_param/data_texture = ExtResource( 12 )
+
+[node name="PlayState" type="Node2D" groups=[
+"playstate",
+]]
 script = ExtResource( 6 )
 
-[node name="Background" parent="." instance=ExtResource( 4 )]
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1024, 600 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Foreground" type="Node2D" parent="."]
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1024, 600 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_2d = true
 
-[node name="MineSpawner" parent="Foreground" instance=ExtResource( 8 )]
+[node name="Background" parent="ViewportContainer/Viewport" instance=ExtResource( 4 )]
 
-[node name="EnemySpawner" parent="Foreground" instance=ExtResource( 3 )]
+[node name="Foreground" type="Node2D" parent="ViewportContainer/Viewport"]
+
+[node name="MineSpawner" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 8 )]
+
+[node name="EnemySpawner" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 3 )]
 player_path = NodePath("../sub")
 
-[node name="sub" parent="Foreground" instance=ExtResource( 1 )]
+[node name="sub" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 1 )]
 position = Vector2( 481.477, 321.579 )
+
+[node name="PostProcessing" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 512, 299.5 )
+scale = Vector2( 32, 18.7812 )
+texture = ExtResource( 10 )
 
 [node name="HUD" type="Node2D" parent="."]
 
@@ -39,4 +76,4 @@ position = Vector2( 307.681, 48.7217 )
 [node name="WeaponIndicator" parent="HUD" instance=ExtResource( 9 )]
 position = Vector2( 353.197, 15.874 )
 
-[connection signal="damage_taken" from="Foreground/sub" to="HUD/HullIntegrity" method="_on_sub_damage_taken"]
+[connection signal="damage_taken" from="ViewportContainer/Viewport/Foreground/sub" to="HUD/HullIntegrity" method="_on_sub_damage_taken"]

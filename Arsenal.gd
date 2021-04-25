@@ -68,7 +68,7 @@ func equip_tertiary(weapon_name):
 
 func equip_weapon(weapon):
 	turret.add_child(weapon)
-	weapon.set_owner(sub.get_owner())
+	weapon.foreground_ref = sub.get_parent()
 	$AudioStreamPlayer.stream = load("res://assets/sounds/equip_weapon.ogg")
 	$AudioStreamPlayer.play()
 	get_tree().call_group("WeaponSlots", "equip", weapon)
