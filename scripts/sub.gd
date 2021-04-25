@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Sub
 
+const DEBUG = false
+
 class StateChange:
 	enum {
 		None,
@@ -54,7 +56,7 @@ class Null extends State:
 class Bob extends State:
 	var bob_timer = 0
 
-	func _init().("idle"): pass
+	func _init().("bob"): pass
 
 	func physics_process(delta: float, sub: Sub):
 		bob_timer += delta
@@ -258,7 +260,8 @@ class StateGraph:
 	func replace_state(sub: Sub, new_state_type):
 		var new_state = sub.state_by_type[new_state_type]
 		
-		print("%s change state from %s to %s" % [label, state.label(), new_state.label()])
+		if DEBUG:
+			print("%s change state from %s to %s" % [label, state.label(), new_state.label()])
 		state.on_exit()
 		state = new_state
 		new_state.on_enter()
@@ -299,6 +302,6 @@ func _physics_process(delta: float):
 func impulse(force: Vector2):
 	self.impulse_force = force
 
-func damage(amount):
+func take_damage(amount):
 	health -= amount
 	emit_signal("damage_taken", amount)
