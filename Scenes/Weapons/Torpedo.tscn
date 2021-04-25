@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/torpedo/sprites/torpedo_03.png" type="Texture" id=1]
 [ext_resource path="res://assets/torpedo/sprites/torpedo_05.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/torpedo/sprites/torpedo_02.png" type="Texture" id=7]
 [ext_resource path="res://assets/torpedo/sprites/torpedo_00.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Weapons/Torpedo.gd" type="Script" id=9]
+[ext_resource path="res://assets/bubble.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,6 +22,19 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 122.671, 82.8292 )
 
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 10.0
+gravity = Vector3( 0, -100, 0 )
+initial_velocity = 150.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+scale_random = 0.2
+
 [node name="Torpedo" type="Node2D"]
 scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 9 )
@@ -29,7 +43,7 @@ script = ExtResource( 9 )
 position = Vector2( 120, -0.914787 )
 rotation = 1.5708
 frames = SubResource( 1 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -40,6 +54,14 @@ collision_mask = 4
 shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -135, 0 )
+amount = 25
+lifetime = 4.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 10 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

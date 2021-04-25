@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/torpedo.ogg-571928f1f896199f5025c598427de00d.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/torpedo.ogg"
+dest_files=[ "res://.import/torpedo.ogg-571928f1f896199f5025c598427de00d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
