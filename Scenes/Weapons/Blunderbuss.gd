@@ -3,6 +3,11 @@ extends Node2D
 const Shrapnel = preload("res://Scenes/Weapons/Shrapnel.tscn")
 var foreground_ref
 
+
+func _ready():
+	$Timer.stop()
+
+
 func get_weapon_name():
 	return "Blunderbuss"
 
