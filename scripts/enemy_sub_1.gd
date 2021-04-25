@@ -133,7 +133,7 @@ class Shoot extends State:
 			var harpoon = Harpoon.instance()
 			harpoon.set_scale(Vector2(0.5, 0.5))
 			harpoon.start(sub.position, (player.position + player.motion).angle_to_point(sub.position), sub)
-			sub.get_owner().add_child(harpoon)
+			sub.get_parent().add_child(harpoon)
 
 			has_shot = true
 
@@ -193,7 +193,7 @@ class ShootGraph extends StateGraph:
 	func _init(sub: EnemySub).(sub, State.Type.Reload, "shoot"): pass
 	
 export(NodePath) var player_path = null
-onready var player = get_node(player_path)
+var player = null
 var motion := Vector2(0.0, 0.0)
 var bob_motion := Vector2(0.0, 0.0)
 
@@ -211,8 +211,14 @@ onready var state_by_type: Dictionary = {
 }
 
 func _ready():
+	if player_path != null:
+		player = get_node(player_path)
+	
 	movement_graph = MovementGraph.new(self)
 	shoot_graph = ShootGraph.new(self)
+
+func init(player: Node):
+	self.player = player
 
 func _physics_process(delta: float):	
 	movement_graph.physics_process(delta, self)

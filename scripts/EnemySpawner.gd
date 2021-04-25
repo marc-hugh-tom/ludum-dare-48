@@ -11,6 +11,7 @@ onready var player = get_node(player_path)
 onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 var mech_fish = preload("res://nodes/MechFish.tscn")
+var enemy_sub = preload("res://nodes/enemy_sub_1.tscn")
 
 func _ready():
 	$Timer.start()
@@ -28,6 +29,37 @@ func return_enemy_formation():
 			]
 		}
 	]
+
+	if global.get_depth() > 1000.0:
+		# enemy sub from bottom
+		formations.append({
+			"enemies": [enemy_sub],
+			"spawn_positions": [
+				Vector2(rand_range(0, get_viewport().size.x), get_viewport().size.y+OFFSCREEN_MARGIN),
+			]
+		})
+	
+	if global.depth() > 2000.0:
+		# 2 enemy subs from left and right
+		formations.append({
+			"enemies": [enemy_sub, enemy_sub],
+			"spawn_positions": [
+				Vector2(-OFFSCREEN_MARGIN, rand_range(0, get_viewport().size.y)),
+				Vector2(get_viewport().size.x + OFFSCREEN_MARGIN, rand_range(0, get_viewport().size.y)),
+			]
+		})
+	
+	if global.depth() > 5000.0:
+		# 3 enemy subs from left, right, and bottom
+		formations.append({
+			"enemies": [enemy_sub, enemy_sub, enemy_sub],
+			"spawn_positions": [
+				Vector2(rand_range(0, get_viewport().size.x), get_viewport().size.y+OFFSCREEN_MARGIN),
+				Vector2(-OFFSCREEN_MARGIN, rand_range(0, get_viewport().size.y)),
+				Vector2(get_viewport().size.x + OFFSCREEN_MARGIN, rand_range(0, get_viewport().size.y)),
+			]
+		})
+	
 	return(formations[randi() % len(formations)])
 
 func spawn_enemy_formation():
@@ -36,7 +68,10 @@ func spawn_enemy_formation():
 		var enemy = formation["enemies"][idx].instance()
 		enemy.player = player
 		enemy.position = formation["spawn_positions"][idx]
-		enemy.current_rotation = enemy.position.angle_to_point(player.position) - PI/2
+		
+		if enemy.has_method("init"):
+			enemy.init(player)
+		
 		get_parent().add_child(enemy)
 
 func _on_Timer_timeout():
