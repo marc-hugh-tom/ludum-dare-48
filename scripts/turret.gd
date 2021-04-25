@@ -2,9 +2,6 @@ extends Node2D
 
 onready var animated_sprite = $AnimatedSprite
 
-export(bool) var is_bottom = false
-onready var is_top = not is_bottom
-
 func _physics_process(delta: float):
 	look_at(get_global_mouse_position())
 	clamp_rotation()
