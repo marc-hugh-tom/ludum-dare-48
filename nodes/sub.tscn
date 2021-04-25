@@ -33,14 +33,14 @@ animations = [ {
 "name": "l",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "flip_r_l",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": false,
 "name": "flip_l_r",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "flip_r_l",
 "speed": 20.0
 } ]
 
