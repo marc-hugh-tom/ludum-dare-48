@@ -48,8 +48,9 @@ func manage_rotation_animation():
 	$AnimatedSprite.set_frame(frame_idx)
 	$CollisionShape2D.set_rotation(current_rotation)
 	$CollisionShape2D.set_position(collision_shape_starting_pos.rotated(current_rotation))
-	$Particles2D.set_rotation(current_rotation)
-	$Particles2D.set_position(particles_starting_pos.rotated(current_rotation))
+	if has_node("Particles2D"):
+		$Particles2D.set_rotation(current_rotation)
+		$Particles2D.set_position(particles_starting_pos.rotated(current_rotation))
 
 func cause_damage(victim):
 	if victim and victim.has_method("take_damage"):
@@ -63,7 +64,19 @@ func explode():
 	var explosion = ExplosionResource.instance()
 	explosion.position = position
 	get_parent().call_deferred("add_child", explosion)
+	reparent_particles()
 	queue_free()
+
+func reparent_particles():
+	if has_node("Particles2D"):
+		var timer = Timer.new()
+		var particles = $Particles2D
+		timer.wait_time = particles.lifetime
+		timer.autostart = true
+		timer.connect("timeout", particles, "queue_free")
+		particles.add_child(timer)
+		remove_child(particles)
+		get_parent().call_deferred("add_child", particles)
 
 func generate_scrap():
 	var scrap = ScrapResource.instance()
