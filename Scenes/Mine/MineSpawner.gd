@@ -3,7 +3,6 @@ extends Node
 const SPAWN_MARGIN = 64
 const MIN_SPAWN_SECONDS = 1
 const MAX_SPAWN_SECONDS = 10
-const MAX_DEPTH = 20000
 
 const MineResource = preload("res://Scenes/Mine/Mine.tscn")
 
@@ -40,7 +39,7 @@ func _on_Timer_timeout():
 
 	var wait_time = rand_range(
 		MIN_SPAWN_SECONDS,
-		lerp(MAX_SPAWN_SECONDS, MIN_SPAWN_SECONDS, global.get_depth() / MAX_DEPTH)
+		lerp(MAX_SPAWN_SECONDS, MIN_SPAWN_SECONDS, global.get_depth() / global.get_max_depth())
 	)
 	
 	$Timer.wait_time = wait_time
