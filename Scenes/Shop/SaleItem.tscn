@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Shop/SaleItem.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/yellow_button13.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Shop/theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/ui/disabled_button.png" type="Texture" id=4]
+[ext_resource path="res://assets/sounds/rollover1.ogg" type="AudioStream" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[node name="sale_item" type="PanelContainer"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -23.0
+margin_bottom = 23.0
+theme = ExtResource( 3 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hbox" type="HBoxContainer" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1019.0
+margin_bottom = 54.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="item_name" type="Label" parent="hbox"]
+margin_top = 15.0
+margin_right = 88.0
+margin_bottom = 33.0
+theme = ExtResource( 3 )
+text = "item name"
+
+[node name="MarginContainer" type="MarginContainer" parent="hbox"]
+margin_left = 92.0
+margin_right = 820.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+
+[node name="TextureButton" type="TextureButton" parent="hbox"]
+margin_left = 824.0
+margin_right = 1014.0
+margin_bottom = 49.0
+texture_normal = ExtResource( 2 )
+texture_disabled = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="hbox/TextureButton"]
+margin_right = 190.0
+margin_bottom = 49.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost_label" type="Label" parent="hbox/TextureButton/CenterContainer"]
+margin_left = 44.0
+margin_top = 15.0
+margin_right = 145.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "cost label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="pressed" from="hbox/TextureButton" to="." method="_on_TextureButton_pressed"]

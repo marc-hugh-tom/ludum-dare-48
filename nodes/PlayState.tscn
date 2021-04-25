@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://nodes/DepthCounter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Mine/MineSpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/HUD/WeaponIndicator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Shop/Shop.tscn" type="PackedScene" id=10]
 
 [node name="PlayState" type="Node2D"]
 script = ExtResource( 6 )
@@ -26,6 +27,7 @@ player_path = NodePath("../sub")
 position = Vector2( 481.477, 321.579 )
 
 [node name="HUD" type="Node2D" parent="."]
+pause_mode = 2
 
 [node name="HullIntegrity" parent="HUD" instance=ExtResource( 5 )]
 position = Vector2( 96, 40 )
@@ -39,4 +41,10 @@ position = Vector2( 307.681, 48.7217 )
 [node name="WeaponIndicator" parent="HUD" instance=ExtResource( 9 )]
 position = Vector2( 353.197, 15.874 )
 
+[node name="Shop" parent="." instance=ExtResource( 10 )]
+pause_mode = 2
+visible = false
+
 [connection signal="damage_taken" from="Foreground/sub" to="HUD/HullIntegrity" method="_on_sub_damage_taken"]
+[connection signal="close" from="Shop" to="." method="_on_Shop_close"]
+[connection signal="on_repair" from="Shop" to="HUD/HullIntegrity" method="_on_Shop_on_repair"]

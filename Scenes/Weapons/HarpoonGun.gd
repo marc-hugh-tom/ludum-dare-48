@@ -17,3 +17,6 @@ func fire(source):
 	var harpoon = Harpoon.instance()
 	harpoon.start(global_position, get_parent().rotation, source)
 	get_owner().add_child(harpoon)
+
+func get_name():
+	return "Harpoon"
