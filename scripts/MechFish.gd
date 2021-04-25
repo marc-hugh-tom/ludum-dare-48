@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export(NodePath) var player_path
 var speed = 2.0
+var rotation_speed = 1.0
 
 ######################################
 
@@ -14,9 +15,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	var direction = position.direction_to(player.position)
-	rotation = position.angle_to_point(player.position) + PI
-	var collision = move_and_collide(direction * speed)
+	var current_dir = Vector2.RIGHT.rotated(rotation)
+	var desired_dir = player.position - position
+	var desired_rotation = current_dir.angle_to(desired_dir)
+	rotation += desired_rotation * rotation_speed * delta
+	var collision = move_and_collide(Vector2.RIGHT.rotated(rotation) * speed)
 	if collision:
 		cause_damage(collision.get_collider())
 		explode()
