@@ -2,7 +2,7 @@
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
-[ext_resource path="res://nodes/enemy_sub_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nodes/EnemySpawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://nodes/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nodes/HullIntegrity.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/PlayState.gd" type="Script" id=6]
@@ -19,12 +19,11 @@ script = ExtResource( 6 )
 
 [node name="MineSpawner" parent="Foreground" instance=ExtResource( 8 )]
 
+[node name="EnemySpawner" parent="Foreground" instance=ExtResource( 3 )]
+player_path = NodePath("../sub")
+
 [node name="sub" parent="Foreground" instance=ExtResource( 1 )]
 position = Vector2( 481.477, 321.579 )
-
-[node name="enemy_sub" parent="Foreground" instance=ExtResource( 3 )]
-position = Vector2( 180, 376 )
-player_path = NodePath("../sub")
 
 [node name="HUD" type="Node2D" parent="."]
 

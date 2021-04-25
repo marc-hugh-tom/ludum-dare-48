@@ -305,3 +305,6 @@ func impulse(force: Vector2):
 func take_damage(amount):
 	health -= amount
 	emit_signal("damage_taken", amount)
+
+func is_player():
+	return(true)

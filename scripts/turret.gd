@@ -1,7 +1,5 @@
 extends Node2D
 
-onready var animated_sprite = $AnimatedSprite
-
 func _physics_process(delta: float):
 	look_at(get_global_mouse_position())
 	clamp_rotation()
