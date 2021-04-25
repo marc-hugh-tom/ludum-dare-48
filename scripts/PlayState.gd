@@ -6,8 +6,10 @@ signal restart
 onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 var explosion_array = []
+var twitter_depth
 
 func _ready():
+	setup_callbacks()
 	global.set_depth(0.0)
 	randomize()
 
@@ -47,3 +49,75 @@ func update_explosions(delta):
 	else:
 		$PostProcessing.get_material().set_shader_param("no_explosion", true)
 	explosion_array = new_array
+
+func _input(event):
+	if event.is_action_released("pause"):
+		toggle_pause_menu()
+
+func setup_callbacks():
+	# Died Restart
+	$DiedMenu/VBoxContainer/Retry.connect(
+		"button_up", self, "emit_signal", ["restart"])
+	# Died Restart
+	$DiedMenu/VBoxContainer/Share.connect(
+		"button_up", self, "twitter_share", [false])
+	# Died Quit
+	$DiedMenu/VBoxContainer/Quit.connect(
+		"button_up", self, "emit_signal", ["quit"])
+
+	# Won Restart
+	$WonMenu/VBoxContainer/Retry.connect(
+		"button_up", self, "emit_signal", ["restart"])
+	# Won Restart
+	$WonMenu/VBoxContainer/Share.connect(
+		"button_up", self, "twitter_share", [true])
+	# Won Quit
+	$WonMenu/VBoxContainer/Quit.connect(
+		"button_up", self, "emit_signal", ["quit"])
+
+	# Pause Continue
+	$PauseMenu/VBoxContainer/Continue.connect(
+		"button_up", self, "toggle_pause_menu")
+	# Pause Quit
+	$PauseMenu/VBoxContainer/Quit.connect(
+		"button_up", self, "emit_signal", ["quit"])
+
+func twitter_share(won):
+	if won:
+		var _return = OS.shell_open("http://twitter.com/share?text=" +
+			"I defeated the boss in NAME&url=" +
+			"https://manicmoleman.itch.io/blood-moon" +
+			"&hashtags=LDJAM,ldjam48,LD48,GodotEngine")
+	else:
+		var _return = OS.shell_open("http://twitter.com/share?text=" +
+			"I made it " + str(int(twitter_depth)) + "m under the sea in NAME&url=" +
+			"https://manicmoleman.itch.io/blood-moon" +
+			"&hashtags=LDJAM,ldjam48,LD48,GodotEngine")
+
+func toggle_pause_menu():
+	if get_tree().paused:
+		$PauseMenu.hide()
+	else:
+		$PauseMenu.show()
+	toggle_pause()
+
+func player_died():
+	$DiedMenu.show()
+	toggle_pause()
+
+func won():
+	$WonMenu.show()
+	toggle_pause()
+
+func toggle_pause():
+	if get_tree().paused:
+		pause_mode = PAUSE_MODE_INHERIT
+		$ViewportContainer.pause_mode = PAUSE_MODE_INHERIT
+		global.pause_mode = PAUSE_MODE_INHERIT
+		get_tree().paused = false
+	else:
+		twitter_depth = global.get_depth()
+		pause_mode = PAUSE_MODE_PROCESS
+		$ViewportContainer.pause_mode = PAUSE_MODE_STOP
+		global.pause_mode = PAUSE_MODE_STOP
+		get_tree().paused = true
