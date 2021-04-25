@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
@@ -9,6 +9,19 @@
 [ext_resource path="res://nodes/DepthCounter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Mine/MineSpawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/HUD/WeaponIndicator.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/background/base.png" type="Texture" id=10]
+[ext_resource path="res://shaders/global.shader" type="Shader" id=11]
+[ext_resource path="res://test.png" type="Texture" id=12]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("ViewportContainer/Viewport")
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 11 )
+shader_param/no_explosion = null
+shader_param/viewport_texture = SubResource( 1 )
+shader_param/data_texture = ExtResource( 12 )
 
 [node name="PlayState" type="Node2D" groups=[
 "playstate",
@@ -42,6 +55,12 @@ player_path = NodePath("../sub")
 
 [node name="sub" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 1 )]
 position = Vector2( 481.477, 321.579 )
+
+[node name="PostProcessing" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 512, 299.5 )
+scale = Vector2( 32, 18.7812 )
+texture = ExtResource( 10 )
 
 [node name="HUD" type="Node2D" parent="."]
 
