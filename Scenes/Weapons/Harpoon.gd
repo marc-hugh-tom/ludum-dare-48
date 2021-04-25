@@ -4,6 +4,8 @@ var fire_source = null
 var speed = 600
 var velocity = Vector2()
 
+const Strike = preload("res://Scenes/Weapons/Strike.tscn")
+
 
 func start(pos, dir, source):
 	rotation = dir
@@ -22,6 +24,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 
 func _do_damage(node):
+	destroy()
 	if node.has_method("take_damage"):
 		node.take_damage(10)
 
@@ -29,10 +32,15 @@ func _do_damage(node):
 func _on_Area2D_area_entered(area):
 	if area != fire_source:
 		_do_damage(area)
-		queue_free()
 
 
 func _on_Area2D_body_entered(body):
 	if body != fire_source:
 		_do_damage(body)
-		queue_free()
+
+
+func destroy():
+	var strike = Strike.instance()
+	strike.position = position
+	get_parent().add_child(strike)
+	queue_free()

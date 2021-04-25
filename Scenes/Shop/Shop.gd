@@ -28,7 +28,7 @@ func _on_Shop_visibility_changed():
 		if arsenal.secondary_weapon:
 			secondary_label.set_text(arsenal.secondary_weapon.get_name())
 		if arsenal.tertiary_weapon:
-			tertiary_label.set_text(arsenal.tertiary_label.get_name())
+			tertiary_label.set_text(arsenal.tertiary_weapon.get_name())
 
 		repair_sale_item.set_cost(repair_cost())
 

@@ -7,17 +7,17 @@
 [ext_resource path="res://Scenes/Shop/theme.tres" type="Theme" id=6]
 [ext_resource path="res://assets/ui/blue_panel.png" type="Texture" id=7]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 72
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 4 )
 
-[sub_resource type="Theme" id=4]
-default_font = SubResource( 3 )
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 20.0
@@ -81,7 +81,7 @@ size_flags_horizontal = 3
 margin_left = 329.0
 margin_right = 533.0
 margin_bottom = 81.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "SHOp"
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/menu_bar"]
@@ -135,7 +135,7 @@ size_flags_horizontal = 3
 margin_left = 112.0
 margin_right = 141.0
 margin_bottom = 18.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 text = "n/a"
 
 [node name="secondary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
@@ -146,7 +146,7 @@ margin_bottom = 40.0
 [node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
 margin_right = 104.0
 margin_bottom = 18.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 text = "secondary:"
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
@@ -159,7 +159,7 @@ size_flags_horizontal = 3
 margin_left = 112.0
 margin_right = 141.0
 margin_bottom = 18.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 text = "n/a"
 
 [node name="tertiary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
@@ -170,7 +170,7 @@ margin_bottom = 62.0
 [node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
 margin_right = 83.0
 margin_bottom = 18.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 text = "tertiary:"
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
@@ -183,7 +183,7 @@ size_flags_horizontal = 3
 margin_left = 112.0
 margin_right = 141.0
 margin_bottom = 18.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 text = "n/a"
 
 [node name="passive" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
@@ -194,7 +194,7 @@ margin_bottom = 84.0
 [node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
 margin_right = 76.0
 margin_bottom = 18.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 text = "passive:"
 
 [node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
@@ -207,7 +207,7 @@ size_flags_horizontal = 3
 margin_left = 112.0
 margin_right = 141.0
 margin_bottom = 18.0
-theme = SubResource( 4 )
+theme = SubResource( 3 )
 text = "n/a"
 
 [node name="VSeparator" type="VSeparator" parent="ShopContainer/MarginContainer/VBoxContainer/main_container"]
@@ -221,7 +221,7 @@ margin_left = 153.0
 margin_right = 884.0
 margin_bottom = 317.0
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 4 )
 
 [node name="sale_items" type="VBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale"]
 margin_left = 20.0
