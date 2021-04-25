@@ -8,15 +8,12 @@ func start(pos, dir):
 	position = pos
 	velocity = Vector2(speed, 0).rotated(rotation)
 
-
 func _physics_process(delta):
 	position += velocity * delta
 	velocity.y = lerp(velocity.y, speed, delta*0.1)
 
-
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-
 
 func _on_Area2D_area_entered(area):
 	if area.has_method("take_damage"):

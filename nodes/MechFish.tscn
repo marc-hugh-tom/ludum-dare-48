@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/MechFish.gd" type="Script" id=1]
+[ext_resource path="res://assets/mechfish/mechfish.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.0
+height = 44.0
+
+[node name="MechFish" type="KinematicBody2D"]
+collision_layer = 5
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -27, 8 )
+scale = Vector2( 0.3, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -23, 1 )
+rotation = 1.5708
+shape = SubResource( 1 )

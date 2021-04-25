@@ -1,17 +1,29 @@
-extends "res://Scenes/ScrollingObject/ScrollingObject.gd"
+extends KinematicBody2D
 
+export(NodePath) var player_path
+var speed = 2.0
+
+######################################
+
+onready var player = get_node(player_path)
 const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
 const ScrapResource = preload("res://nodes/scrap.tscn")
-
 var exploded_bool = false
 
-func _on_Mine_body_entered(body):
-	cause_damage(body)
-	explode()
+func _ready():
+	pass # Replace with function body.
+
+func _physics_process(delta):
+	var direction = position.direction_to(player.position)
+	rotation = position.angle_to_point(player.position) + PI
+	var collision = move_and_collide(direction * speed)
+	if collision:
+		cause_damage(collision.get_collider())
+		explode()
 
 func cause_damage(victim):
 	if victim and victim.has_method("take_damage"):
-		victim.take_damage(10)
+		victim.damage(10)
 	if victim.has_method("impulse"):
 		var direction = ( victim.position - self.position ).normalized()
 		victim.impulse(direction * 3)
