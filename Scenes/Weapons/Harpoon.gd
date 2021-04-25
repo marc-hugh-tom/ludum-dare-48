@@ -24,11 +24,12 @@ func _do_damage(node):
 
 
 func _on_Area2D_area_entered(area):
-	_do_damage(area)
-	queue_free()
+	if area != fire_source:
+		_do_damage(area)
+		queue_free()
 
 
 func _on_Area2D_body_entered(body):
 	if body != fire_source:
 		_do_damage(body)
-	queue_free()
+		queue_free()
