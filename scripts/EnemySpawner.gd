@@ -39,7 +39,7 @@ func return_enemy_formation():
 			]
 		})
 	
-	if global.depth() > 2000.0:
+	if global.get_depth() > 2000.0:
 		# 2 enemy subs from left and right
 		formations.append({
 			"enemies": [enemy_sub, enemy_sub],
@@ -49,7 +49,7 @@ func return_enemy_formation():
 			]
 		})
 	
-	if global.depth() > 5000.0:
+	if global.get_depth() > 5000.0:
 		# 3 enemy subs from left, right, and bottom
 		formations.append({
 			"enemies": [enemy_sub, enemy_sub, enemy_sub],
