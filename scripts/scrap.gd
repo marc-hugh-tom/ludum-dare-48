@@ -8,9 +8,11 @@ func _ready():
 	rotation_degrees = rand_range(0, 360)
 
 func _on_scrap_body_entered(body):
-	global.increment_scrap(10)
-	play_pickup_noise()
-	destroy()
+	if body.has_method('is_player'):
+		if body.is_player():
+			global.increment_scrap(10)
+			play_pickup_noise()
+			destroy()
 
 func play_pickup_noise():
 	$AudioStreamPlayer2D.connect("finished", self,
