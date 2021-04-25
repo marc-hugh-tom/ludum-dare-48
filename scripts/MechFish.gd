@@ -14,8 +14,8 @@ const ScrapResource = preload("res://nodes/scrap.tscn")
 var exploded_bool = false
 var current_rotation = 0
 
-func _ready():
-	pass # Replace with function body.
+func init(player: Node):
+	current_rotation = position.angle_to_point(player.position) - PI/2
 
 func is_mech_fish():
 	return(true)
