@@ -299,6 +299,6 @@ func _physics_process(delta: float):
 func impulse(force: Vector2):
 	self.impulse_force = force
 
-func damage(amount):
+func take_damage(amount):
 	health -= amount
 	emit_signal("damage_taken", amount)

@@ -23,7 +23,7 @@ func _physics_process(delta):
 
 func cause_damage(victim):
 	if victim and victim.has_method("take_damage"):
-		victim.damage(10)
+		victim.take_damage(10)
 	if victim.has_method("impulse"):
 		var direction = ( victim.position - self.position ).normalized()
 		victim.impulse(direction * 3)
