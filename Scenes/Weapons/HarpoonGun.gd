@@ -7,12 +7,12 @@ func get_weapon_name():
 	return "Harpoons"
 
 
-func firing():
+func firing(source):
 	if $Timer.is_stopped():
-		fire()
+		fire(source)
 
 
-func fire():
+func fire(source):
 	$Timer.start()
 	$AudioStreamPlayer2D.play()
 	var harpoon = Harpoon.instance()

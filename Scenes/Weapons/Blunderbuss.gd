@@ -6,12 +6,12 @@ var foreground_ref
 func get_weapon_name():
 	return "Blunderbuss"
 
-func firing():
+func firing(source):
 	if $Timer.is_stopped():
-		fire()
+		fire(source)
 
 
-func fire():
+func fire(source):
 	print("blunderbuss fire")
 	$Timer.start()
 	$AudioStreamPlayer2D.play()
