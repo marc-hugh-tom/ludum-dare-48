@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/background/base.png" type="Texture" id=10]
 [ext_resource path="res://shaders/global.shader" type="Shader" id=11]
 [ext_resource path="res://test.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Shop/Shop.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("ViewportContainer/Viewport")
@@ -63,6 +64,7 @@ scale = Vector2( 32, 18.7812 )
 texture = ExtResource( 10 )
 
 [node name="HUD" type="Node2D" parent="."]
+pause_mode = 2
 
 [node name="HullIntegrity" parent="HUD" instance=ExtResource( 5 )]
 position = Vector2( 96, 40 )
@@ -76,4 +78,10 @@ position = Vector2( 307.681, 48.7217 )
 [node name="WeaponIndicator" parent="HUD" instance=ExtResource( 9 )]
 position = Vector2( 353.197, 15.874 )
 
+[node name="Shop" parent="." instance=ExtResource( 13 )]
+pause_mode = 2
+visible = false
+
 [connection signal="damage_taken" from="ViewportContainer/Viewport/Foreground/sub" to="HUD/HullIntegrity" method="_on_sub_damage_taken"]
+[connection signal="close" from="Shop" to="." method="_on_Shop_close"]
+[connection signal="on_repair" from="Shop" to="HUD/HullIntegrity" method="_on_Shop_on_repair"]

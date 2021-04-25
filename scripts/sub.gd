@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Sub
 
+onready var global = get_tree().get_root().get_node("GlobalVariables")
+
 const DEBUG = false
 
 class StateChange:
@@ -303,7 +305,7 @@ func impulse(force: Vector2):
 	self.impulse_force = force
 
 func take_damage(amount):
-	health -= amount
+	global.decrement_health(amount)
 	emit_signal("damage_taken", amount)
 
 func is_player():

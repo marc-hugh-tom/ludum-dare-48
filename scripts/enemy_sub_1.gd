@@ -234,15 +234,17 @@ func _physics_process(delta: float):
 	self.position += self.bob_motion
 
 var health = 50.0
+var has_exploded = false
 
 func take_damage(damage):
 	health -= damage
-	if health <= 0.0 and is_instance_valid(self):
+	if health <= 0.0 and not has_exploded:
+		has_exploded = true
 		var explosion = ExplosionResource.instance()
 		explosion.position = position
 		get_parent().call_deferred("add_child", explosion)
 		queue_free()
-		
+
 		for i in range(0, 3):
 			var scrap = ScrapResource.instance()
 			scrap.set_position(Vector2(position.x + rand_range(-20, 20), position.y + rand_range(-20, 20)))

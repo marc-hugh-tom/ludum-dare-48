@@ -5,8 +5,10 @@ var update_speed = 0.1
 
 ############################
 
-var current_value = 100.0
-var lag_value = 100.0
+onready var global = get_tree().get_root().get_node("GlobalVariables")
+
+onready var current_value = global.get_health()
+onready var lag_value = current_value
 var update_timer = 0.0
 
 onready var meter = $Meter
@@ -25,3 +27,6 @@ func _process(delta):
 
 func _on_sub_damage_taken(amount):
 	take_damage(amount)
+
+func _on_Shop_on_repair():
+	current_value = global.get_health()
