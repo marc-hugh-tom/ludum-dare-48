@@ -17,3 +17,6 @@ func update_depth(delta):
 		current_depth - global.get_scroll_vector().y * delta,
 		global.get_max_depth()
 	))
+
+func explosion_event(explosion_pos):
+	print('boom', explosion_pos)

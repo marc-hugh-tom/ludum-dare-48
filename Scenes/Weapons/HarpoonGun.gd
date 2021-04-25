@@ -1,6 +1,7 @@
 extends Node2D
 
 const Harpoon = preload("res://Scenes/Weapons/Harpoon.tscn")
+var foreground_ref
 
 func get_weapon_name():
 	return "Harpoons"
@@ -16,4 +17,4 @@ func fire():
 	$AudioStreamPlayer2D.play()
 	var harpoon = Harpoon.instance()
 	harpoon.start(global_position, get_parent().rotation)
-	get_owner().add_child(harpoon)
+	foreground_ref.add_child(harpoon)
