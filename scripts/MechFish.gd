@@ -71,6 +71,7 @@ func reparent_particles():
 	if has_node("Particles2D"):
 		var timer = Timer.new()
 		var particles = $Particles2D
+		particles.emitting = false
 		timer.wait_time = particles.lifetime
 		timer.autostart = true
 		timer.connect("timeout", particles, "queue_free")
