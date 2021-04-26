@@ -282,6 +282,8 @@ var impulse_dampen = ImpulseDampen.new()
 var motion := Vector2(0.0, 0.0)
 var impulse_force := Vector2(0.0, 0.0)
 
+var world_margin = Vector2(30.0, 10.0)
+
 signal damage_taken
 
 const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
@@ -301,6 +303,8 @@ func _physics_process(delta: float):
 		$AnimationPlayer.play("flip_r_l")
 	self.position += self.motion
 	self.position += self.impulse_force
+	self.position.x = clamp(self.position.x, world_margin.x, get_viewport_rect().size.x-world_margin.x)
+	self.position.y = clamp(self.position.y, world_margin.y, get_viewport_rect().size.y-world_margin.y)
 
 func impulse(force: Vector2):
 	self.impulse_force = force
