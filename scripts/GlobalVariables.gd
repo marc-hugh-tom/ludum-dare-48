@@ -77,5 +77,8 @@ func reset():
 	set_depth(0)
 	set_scrap(0)
 
+func is_max_depth():
+	return abs(depth - max_depth) < 0.1
+
 func _sync_sales_buttons():
 	get_tree().call_group("SaleButtons", "sync_ui")

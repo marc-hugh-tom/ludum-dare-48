@@ -15,6 +15,9 @@ const ScrapResource = preload("res://nodes/scrap.tscn")
 var exploded_bool = false
 var current_rotation = 0
 
+func _ready():
+	add_to_group("enemy")
+
 func init(player: Node):
 	self.player = player
 	current_rotation = position.angle_to_point(player.position) - PI/2
