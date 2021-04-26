@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Weapons/TorpedoLauncher.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/torpedo.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/sounds/ready.ogg" type="AudioStream" id=3]
 
 [node name="TorpedoTube" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,5 +12,10 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Launch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+
+[node name="Ready" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
