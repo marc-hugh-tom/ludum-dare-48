@@ -1,7 +1,7 @@
 extends Node2D
 
 var fire_source = null
-var speed = 650
+var speed = 700
 var velocity = Vector2()
 
 const Strike = preload("res://Scenes/Weapons/Strike.tscn")
@@ -16,7 +16,7 @@ func start(pos, dir, source):
 
 func _physics_process(delta):
 	position += velocity * delta
-	velocity.y = lerp(velocity.y, speed, delta*0.075)
+	velocity.y = lerp(velocity.y, speed, delta*0.05)
 
 
 func _on_VisibilityNotifier2D_screen_exited():
@@ -26,7 +26,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _do_damage(node):
 	destroy()
 	if node.has_method("take_damage"):
-		node.take_damage(10)
+		node.take_damage(8)
 
 
 func _on_Area2D_area_entered(area):
