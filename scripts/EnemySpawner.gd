@@ -75,6 +75,10 @@ func spawn_enemy_formation():
 		get_parent().add_child(enemy)
 
 func _on_Timer_timeout():
+	if global.is_max_depth():
+		$Timer.stop()
+		return
+	
 	spawn_enemy_formation()
 	var wait_time = rand_range(
 		MIN_SPAWN_SECONDS,
@@ -82,3 +86,18 @@ func _on_Timer_timeout():
 	)
 	$Timer.wait_time = wait_time
 	$Timer.start()
+
+func _on_boss_spawn_mechfish(params):
+	var position = params[0]
+	var enemy = mech_fish.instance()
+	enemy.player = player
+	enemy.position = position
+	enemy.init(player)
+	get_parent().add_child(enemy)
+
+func _on_boss_spawn_sub(position):
+	var enemy = enemy_sub.instance()
+	enemy.player = player
+	enemy.position = position
+	enemy.init(player)
+	get_parent().add_child(enemy)

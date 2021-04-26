@@ -12,11 +12,14 @@ func _ready():
 	$Timer.start()
 
 
-func spawn_mine():
+func spawn_mine(position = null, boss = null):
 	var mine = MineResource.instance()
-	mine.position = select_spawn_point()
+	if position == null:
+		mine.position = select_spawn_point()
+	else:
+		mine.position = position
+	mine.boss = boss
 	get_parent().add_child(mine)
-	print("spawned mine at ", mine.position)
 
 
 func select_spawn_point() -> Vector2:
@@ -35,6 +38,10 @@ func select_spawn_point() -> Vector2:
 
 
 func _on_Timer_timeout():
+	if global.is_max_depth():
+		$Timer.stop()
+		return
+	
 	spawn_mine()
 
 	var wait_time = rand_range(
@@ -44,3 +51,9 @@ func _on_Timer_timeout():
 	
 	$Timer.wait_time = wait_time
 	$Timer.start()
+
+
+func _on_boss_spawn_mine(params):
+	var position = params[0]
+	var boss = params[1]
+	spawn_mine(position, boss)

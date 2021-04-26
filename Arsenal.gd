@@ -5,7 +5,7 @@ onready var turret = sub.get_node("Turret")
 
 const WeaponResources = {
 	"HarpoonGun": preload("res://Scenes/Weapons/HarpoonGun.tscn"),
-	"Blunderbuss": preload("res://Scenes/Weapons/Blunderbuss.tscn"),
+	"DepthChares": preload("res://Scenes/Weapons/Blunderbuss.tscn"),
 	"TorpedoTube": preload("res://Scenes/Weapons/TorpedoTube.tscn")
 }
 
@@ -16,8 +16,7 @@ var tertiary_weapon = null
 
 func _ready():
 	equip_primary("HarpoonGun")
-	equip_secondary("Blunderbuss")
-	equip_tertiary("TorpedoTube")
+
 
 
 func _process(delta):
@@ -73,4 +72,12 @@ func equip_weapon(weapon):
 	weapon.foreground_ref = sub.get_parent()
 	$AudioStreamPlayer.stream = load("res://assets/sounds/equip_weapon.ogg")
 	$AudioStreamPlayer.play()
-	get_tree().call_group("WeaponSlots", "equip", weapon)
+	get_tree().call_group("WeaponSlots", "equip", weapon, self)
+	
+	
+func weapon_is_equipped(weapon_name) -> bool:
+	return (
+		(primary_weapon and primary_weapon.get_weapon_name() == weapon_name) or
+		(secondary_weapon and secondary_weapon.get_weapon_name() == weapon_name) or
+		(tertiary_weapon and tertiary_weapon.get_weapon_name() == weapon_name)
+	)

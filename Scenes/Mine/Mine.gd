@@ -6,6 +6,9 @@ const ScrapResource = preload("res://nodes/scrap.tscn")
 var exploded_bool = false
 var boss = null
 
+func _ready():
+	add_to_group("enemy")
+
 func _on_Mine_body_entered(body):
 	if body != boss:
 		cause_damage(body)
