@@ -25,7 +25,7 @@ func update_blood():
 var shop_visible = false
 
 func _process(delta):
-	if Input.is_action_just_pressed("shop") and not shop_visible:
+	if Input.is_action_just_pressed("shop") and not shop_visible and global.get_health() > 0:
 		toggle_pause()
 		$Shop.arsenal = $ViewportContainer/Viewport/Foreground/sub.get_node("Arsenal")
 		shop_visible = true
