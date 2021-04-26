@@ -18,6 +18,8 @@
  - Noise textures from Yoeri "Luos" Vleer: https://luos.itch.io/
  - Scrap sound: https://freesound.org/s/378670/
  - https://freesound.org/people/jppi_Stu/sounds/161687/
+ - https://freesound.org/people/Quistard/sounds/237753/
+ - https://freesound.org/people/murraysortz/sounds/192501/
 
 ## Music
 
