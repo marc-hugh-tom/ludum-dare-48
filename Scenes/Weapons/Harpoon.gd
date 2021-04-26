@@ -1,7 +1,7 @@
 extends Node2D
 
 var fire_source = null
-var speed = 600
+var speed = 500
 var velocity = Vector2()
 
 const Strike = preload("res://Scenes/Weapons/Strike.tscn")

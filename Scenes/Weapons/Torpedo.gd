@@ -46,3 +46,14 @@ func _on_Area2D_body_entered(body):
 		body.take_damage(50)
 
 	queue_free()
+
+
+func _on_Area2D_area_entered(area):
+	var explosion = Explosion.instance()
+	explosion.position = position
+	foreground_ref.call_deferred("add_child", explosion)
+	
+	if area.has_method("take_damage"):
+		area.take_damage(50)
+
+	queue_free()
