@@ -3,6 +3,8 @@ extends Node2D
 signal quit
 signal restart
 
+var explosion_length = 0.5
+
 onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 var explosion_array = []
@@ -35,7 +37,7 @@ func update_explosions(delta):
 	var new_array = []
 	for explosion in explosion_array:
 		explosion['t'] += delta
-		if explosion['t'] < 1.0:
+		if explosion['t'] < explosion_length:
 			new_array.append(explosion)
 	if len(new_array) > 0:
 		var data_image = Image.new()
@@ -46,7 +48,7 @@ func update_explosions(delta):
 				Color(
 					new_array[i]['pos'].x / screen_size.x,
 					1.0-new_array[i]['pos'].y / screen_size.y,
-					new_array[i]['t']
+					new_array[i]['t'] / explosion_length
 				)
 			)
 		data_image.unlock()

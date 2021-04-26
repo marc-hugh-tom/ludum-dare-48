@@ -6,8 +6,8 @@ uniform bool no_explosion;
 
 const float force = 0.5;
 const float blur = 30.0;
-const float ring_size = 50.0;
-const float max_size = 200.0;
+const float ring_size = 20.0;
+const float max_size = 100.0;
 
 void fragment() {
 	vec2 corrected_uv = vec2(UV.x, 1.0-UV.y);
