@@ -34,13 +34,17 @@ func get_scrap() -> int:
 func increment_scrap(val: int):
 	scrap += val
 	scrap = min(scrap, max_scrap)
+	_sync_sales_buttons()
 
 func decrement_scrap(val: int):
 	scrap -= val
 	scrap = max(scrap, 0)
+	_sync_sales_buttons()
 
 func set_scrap(val: int):
 	scrap = val
+	_sync_sales_buttons()
+	
 
 func get_max_depth() -> int:
 	return(max_depth)
@@ -75,3 +79,6 @@ func reset():
 
 func is_max_depth():
 	return abs(depth - max_depth) < 0.1
+
+func _sync_sales_buttons():
+	get_tree().call_group("SaleButtons", "sync_ui")

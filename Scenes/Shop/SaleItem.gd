@@ -4,6 +4,9 @@ onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 export(String) var item_name = ""
 export(int) var cost = 0
+export(String) var weapon_name = ""
+
+var my_weapon_equipped = false
 
 signal buy
 
@@ -15,6 +18,8 @@ func sync_ui():
 	$hbox/TextureButton/CenterContainer/cost_label.set_text(str(cost) + " scrap")
 	
 	if cost == 0 or cost > global.get_scrap():
+		disable()
+	elif my_weapon_equipped:
 		disable()
 	else:
 		enable()
@@ -34,3 +39,10 @@ func disable():
 
 func enable():
 	$hbox/TextureButton.disabled = false
+
+func equip(_weapon, arsenal):
+	my_weapon_equipped = (
+		weapon_name and 
+		arsenal.weapon_is_equipped(weapon_name)
+	)
+	sync_ui()
