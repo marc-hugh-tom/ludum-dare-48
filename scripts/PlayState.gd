@@ -9,10 +9,18 @@ onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 var explosion_array = []
 var twitter_depth
+var player_blood_threshold = 30.0
 
 func _ready():
 	setup_callbacks()
 	randomize()
+
+func update_blood():
+	var blood_t = 0
+	var current_value = $HUD/HullIntegrity.lag_value
+	if current_value < player_blood_threshold:
+		blood_t = 1.0 - (current_value/player_blood_threshold)
+	$PostProcessing.get_material().set_shader_param("blood_intensity", blood_t)
 
 func _process(delta):
 	if Input.is_action_just_pressed("shop"):
@@ -20,6 +28,7 @@ func _process(delta):
 		$Shop.arsenal = $ViewportContainer/Viewport/Foreground/sub.get_node("Arsenal")
 		$Shop.show()
 	update_explosions(delta)
+	update_blood()
 
 func _on_Shop_close():
 	toggle_pause()
