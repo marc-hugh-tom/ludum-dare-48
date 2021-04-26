@@ -2,6 +2,7 @@ extends Node2D
 
 onready var sub = get_parent()
 onready var turret = sub.get_node("Turret")
+onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 const WeaponResources = {
 	"HarpoonGun": preload("res://Scenes/Weapons/HarpoonGun.tscn"),
@@ -22,26 +23,27 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_pressed("fire_primary"):
-		if primary_weapon and primary_weapon.has_method("firing"):
-			primary_weapon.firing(get_parent())
-	if Input.is_action_just_pressed("fire_primary"):
-		if primary_weapon and primary_weapon.has_method("fire_once"):
-			primary_weapon.fire_once(get_parent())
-	
-	if Input.is_action_pressed("fire_secondary"):
-		if secondary_weapon and secondary_weapon.has_method("firing"):
-			secondary_weapon.firing(get_parent())
-	if Input.is_action_just_pressed("fire_secondary"):
-		if secondary_weapon and secondary_weapon.has_method("fire_once"):
-			secondary_weapon.fire_once(get_parent())
+	if global.get_health() > 0:
+		if Input.is_action_pressed("fire_primary"):
+			if primary_weapon and primary_weapon.has_method("firing"):
+				primary_weapon.firing(get_parent())
+		if Input.is_action_just_pressed("fire_primary"):
+			if primary_weapon and primary_weapon.has_method("fire_once"):
+				primary_weapon.fire_once(get_parent())
+		
+		if Input.is_action_pressed("fire_secondary"):
+			if secondary_weapon and secondary_weapon.has_method("firing"):
+				secondary_weapon.firing(get_parent())
+		if Input.is_action_just_pressed("fire_secondary"):
+			if secondary_weapon and secondary_weapon.has_method("fire_once"):
+				secondary_weapon.fire_once(get_parent())
 
-	if Input.is_action_pressed("fire_tertiary"):
-		if tertiary_weapon and tertiary_weapon.has_method("firing"):
-			tertiary_weapon.firing(get_parent())
-	if Input.is_action_just_pressed("fire_tertiary"):
-		if tertiary_weapon and tertiary_weapon.has_method("fire_once"):
-			tertiary_weapon.fire_once(get_parent())
+		if Input.is_action_pressed("fire_tertiary"):
+			if tertiary_weapon and tertiary_weapon.has_method("firing"):
+				tertiary_weapon.firing(get_parent())
+		if Input.is_action_just_pressed("fire_tertiary"):
+			if tertiary_weapon and tertiary_weapon.has_method("fire_once"):
+				tertiary_weapon.fire_once(get_parent())
 
 func equip_primary(weapon_name):
 	if primary_weapon:
