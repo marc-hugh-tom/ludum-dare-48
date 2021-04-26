@@ -16,6 +16,7 @@ var exploded_bool = false
 var current_rotation = 0
 
 func init(player: Node):
+	self.player = player
 	current_rotation = position.angle_to_point(player.position) - PI/2
 
 func is_mech_fish():
@@ -34,7 +35,7 @@ func _physics_process(delta):
 		for idx in range(slide_count):
 			var collision = get_slide_collision(slide_count - 1)
 			var collider = collision.collider
-			if not collider.has_method("is_mech_fish"):
+			if not collider.has_method("is_mech_fish") and not collider.has_method("is_boss"):
 				cause_damage(collider)
 				explode()
 

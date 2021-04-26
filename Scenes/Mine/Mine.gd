@@ -4,10 +4,12 @@ const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
 const ScrapResource = preload("res://nodes/scrap.tscn")
 
 var exploded_bool = false
+var boss = null
 
 func _on_Mine_body_entered(body):
-	cause_damage(body)
-	explode()
+	if body != boss:
+		cause_damage(body)
+		explode()
 
 func cause_damage(victim):
 	if victim and victim.has_method("take_damage"):
