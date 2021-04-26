@@ -1,0 +1,13 @@
+# Made using Asset Forge (2.1.2)
+
+:materials
+
+[name:metalPurple;color:RGBA(1.000, 0.677, 0.232, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+[name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0.25;]
+[name:dark;color:RGBA(0.224, 0.235, 0.275, 1.000);scale:(1.0, 1.0);shader:Default;valueA:0.35;valueB:0;]
+
+:models
+
+[name:;collection:Aircraft;type:hull_frontPoint;position:(0.0000, 0.7650, 0.3550);rotation:(270.0000, 0.0000, 0.0000);scale:(0.7000, 0.7000, 0.7000);group:Group_0;locked:False;hidden:False;materials:_defaultMat+metalPurple;]
+[name:;collection:Aircraft;type:hull_tailSmall;position:(0.0000, -0.0350, 0.4550);rotation:(270.0000, 0.0000, 0.0000);scale:(0.9000, 0.9000, 1.0800);group:Group_0;locked:False;hidden:False;materials:metalPurple+_defaultMat;]
+[name:;collection:Aircraft;type:engine_turbineLarge%;position:(0.0000, -0.8350, 0.3550);rotation:(270.0000, 0.0000, 0.0000);scale:(0.7200, 0.7200, 0.7200);group:Group_0;locked:False;hidden:False;materials:metalPurple+_defaultMat+dark;]

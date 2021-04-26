@@ -43,7 +43,7 @@ margin_right = 147.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Lorem ipsum"
+text = "-"
 
 [node name="Secondary" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 margin_top = 14.0
@@ -51,7 +51,7 @@ margin_right = 147.0
 margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Lorem ipsum"
+text = "[ PRESS I ]"
 
 [node name="Tertiary" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 margin_top = 28.0
@@ -59,4 +59,4 @@ margin_right = 147.0
 margin_bottom = 45.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-text = "Lorem ipsum"
+text = "[ PRESS I ]"
