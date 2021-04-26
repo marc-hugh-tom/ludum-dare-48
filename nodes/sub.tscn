@@ -118,7 +118,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 69.697, -42.4242 ), Vector2( -69.697, -42.424 ) ]
+"values": [ Vector2( 66.667, -87.879 ), Vector2( -66.667, -87.879 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Turret:position")
@@ -130,7 +130,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -89.7729, -46.2122 ), Vector2( 94.8305, -45.4095 ) ]
+"values": [ Vector2( -91.349, -17.083 ), Vector2( 91.349, -17.083 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Turret:scale")
@@ -194,7 +194,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -69.697, -42.424 ), Vector2( 69.697, -42.4242 ) ]
+"values": [ Vector2( -66.667, -87.879 ), Vector2( 66.667, -87.879 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Turret:position")
@@ -206,7 +206,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 93.6266, -46.2122 ), Vector2( -89.7729, -45.8108 ) ]
+"values": [ Vector2( 91.349, -17.083 ), Vector2( -91.349, -17.083 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Turret:scale")
@@ -231,7 +231,7 @@ frames = SubResource( 1 )
 animation = "l"
 
 [node name="Turret" parent="." instance=ExtResource( 3 )]
-position = Vector2( -91.3486, -17.0835 )
+position = Vector2( -91.349, -17.083 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -245,7 +245,7 @@ anims/flip_l_r = SubResource( 4 )
 anims/flip_r_l = SubResource( 5 )
 
 [node name="Particles2D" parent="." instance=ExtResource( 17 )]
-position = Vector2( 68.1212, -13.6969 )
+position = Vector2( 66.667, -87.879 )
 
 [node name="Arsenal" parent="." groups=[
 "Arsenal",
