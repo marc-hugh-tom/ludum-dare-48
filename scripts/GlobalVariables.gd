@@ -7,7 +7,7 @@ var scrap: int = 0
 var max_depth: int = 9999
 var max_scrap: int = 9999
 
-var max_boss_health: float = 500.0
+var max_boss_health: float = 5000.0
 var boss_health: float = max_boss_health
 
 var max_health: float = 100.0
