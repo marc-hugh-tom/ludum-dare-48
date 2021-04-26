@@ -13,6 +13,8 @@
  - https://freesound.org/people/32cheeseman32/sounds/180819/
  - https://freesound.org/people/cetsoundcrew/sounds/521370/
  - https://freesound.org/people/gamer127/sounds/463067/
+ - https://freesound.org/people/craigsmith/sounds/438737/
+ - https://freesound.org/people/SoundFX.studio/sounds/456272/
 
 ## Credits
 
