@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://shaders/hull_integrity.shader" type="Shader" id=1]
+[ext_resource path="res://assets/hud/hull_integrity_meter.png" type="Texture" id=2]
+[ext_resource path="res://scripts/BossHealth.gd" type="Script" id=3]
+[ext_resource path="res://assets/hud/boss_health.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/full_colour = Color( 0, 0.407843, 0.176471, 1 )
+shader_param/damage_colour = Color( 0.392157, 0.109804, 0.109804, 1 )
+shader_param/empty_colour = Color( 0.235294, 0.235294, 0.235294, 1 )
+shader_param/lag_value = 84.884
+shader_param/current_value = 52.326
+
+[node name="BossHealth" type="Node2D"]
+position = Vector2( 932, 40 )
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="Meter" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( 0, 8 )
+texture = ExtResource( 2 )

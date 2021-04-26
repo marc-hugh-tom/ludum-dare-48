@@ -67,3 +67,8 @@ func update_depth(delta):
 		get_max_depth()
 	))
 
+func reset():
+	pause_mode = PAUSE_MODE_INHERIT
+	set_health(max_health)
+	set_depth(0)
+	set_scrap(0)

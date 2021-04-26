@@ -12,7 +12,6 @@ var twitter_depth
 
 func _ready():
 	setup_callbacks()
-	global.set_depth(0.0)
 	randomize()
 
 func _process(delta):

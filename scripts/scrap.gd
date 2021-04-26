@@ -3,6 +3,7 @@ extends "res://Scenes/ScrollingObject/ScrollingObject.gd"
 var max_scale = Vector2(4, 4)
 var animation_duration = 0.3
 
+var picked_up = false
 
 func _ready():
 	rotation_degrees = rand_range(0, 360)
@@ -10,9 +11,11 @@ func _ready():
 func _on_scrap_body_entered(body):
 	if body.has_method('is_player'):
 		if body.is_player():
-			global.increment_scrap(10)
-			play_pickup_noise()
-			destroy()
+			if not picked_up:
+				picked_up = true
+				global.increment_scrap(10)
+				play_pickup_noise()
+				destroy()
 
 func play_pickup_noise():
 	$AudioStreamPlayer2D.connect("finished", self,
