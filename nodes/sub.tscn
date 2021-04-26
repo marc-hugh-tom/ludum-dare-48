@@ -207,7 +207,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1.57576, 28.7273 )
 frames = SubResource( 1 )
-animation = "flip_l_r"
+animation = "l"
 
 [node name="Turret" parent="." instance=ExtResource( 3 )]
 position = Vector2( -91.349, -17.083 )
