@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://nodes/ui/ButtonTheme.tres" type="Theme" id=13]
 [ext_resource path="res://Scenes/Shop/Shop.tscn" type="PackedScene" id=14]
 [ext_resource path="res://nodes/ui/SubMenuFont.tres" type="DynamicFont" id=15]
-[ext_resource path="res://Scenes/Boss/Boss.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("ViewportContainer/Viewport")
@@ -59,9 +58,6 @@ player_path = NodePath("../sub")
 
 [node name="sub" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 1 )]
 position = Vector2( 481.477, 321.579 )
-
-[node name="boss" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 16 )]
-position = Vector2( 530.813, 792.298 )
 
 [node name="PostProcessing" type="Sprite" parent="."]
 material = SubResource( 2 )
@@ -266,8 +262,5 @@ pause_mode = 2
 visible = false
 
 [connection signal="damage_taken" from="ViewportContainer/Viewport/Foreground/sub" to="HUD/HullIntegrity" method="_on_sub_damage_taken"]
-[connection signal="spawn_mechfish" from="ViewportContainer/Viewport/Foreground/boss" to="ViewportContainer/Viewport/Foreground/EnemySpawner" method="_on_boss_spawn_mechfish"]
-[connection signal="spawn_mine" from="ViewportContainer/Viewport/Foreground/boss" to="ViewportContainer/Viewport/Foreground/MineSpawner" method="_on_boss_spawn_mine"]
-[connection signal="spawn_sub" from="ViewportContainer/Viewport/Foreground/boss" to="ViewportContainer/Viewport/Foreground/EnemySpawner" method="_on_boss_spawn_sub"]
 [connection signal="close" from="Shop" to="." method="_on_Shop_close"]
 [connection signal="on_repair" from="Shop" to="HUD/HullIntegrity" method="_on_Shop_on_repair"]
