@@ -313,7 +313,12 @@ func take_damage(amount):
 	global.decrement_health(amount)
 	emit_signal("damage_taken", amount)
 	if global.get_health() <= 0:
-		$AnimationPlayer.play("died")
+		explode()
+		var timer = Timer.new()
+		timer.wait_time = 2.0
+		timer.autostart = true
+		timer.connect("timeout", self, "trigger_end_game")
+		add_child(timer)
 
 func is_player():
 	return(true)
