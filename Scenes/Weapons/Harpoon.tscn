@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Weapons/Harpoon.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 25.082, 5.36621 )
+extents = Vector2( 25.082, 6.45587 )
 
 [node name="Harpoon" type="Node2D"]
 scale = Vector2( 0.75, 0.75 )

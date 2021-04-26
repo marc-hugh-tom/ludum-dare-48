@@ -19,7 +19,7 @@ func firing(source):
 func fire(source):
 	$Timer.start()
 	$AudioStreamPlayer2D.play()
-	var spread = PI*0.01
+	var spread = PI*0.05
 	var rotation = get_parent().rotation - spread
 	for i in 3:
 		var shrapnel = Shrapnel.instance()

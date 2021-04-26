@@ -44,8 +44,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 9.0
-height = 44.0
+radius = 15.7777
+height = 50.9719
 
 [sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 1
