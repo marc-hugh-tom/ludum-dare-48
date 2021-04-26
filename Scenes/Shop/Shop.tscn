@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/ui/red_cross.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Shop/Shop.gd" type="Script" id=2]
@@ -11,13 +11,7 @@
 size = 72
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 4 )
-
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
-
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 20.0
@@ -110,134 +104,27 @@ margin_right = 884.0
 margin_bottom = 410.0
 size_flags_vertical = 3
 
-[node name="owned_items" type="VBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container"]
-margin_right = 141.0
-margin_bottom = 317.0
-size_flags_vertical = 3
-
-[node name="primary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
-margin_right = 141.0
-margin_bottom = 18.0
-
-[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/primary"]
-margin_right = 78.0
-margin_bottom = 18.0
-theme = ExtResource( 6 )
-text = "primary:"
-
-[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/primary"]
-margin_left = 82.0
-margin_right = 108.0
-margin_bottom = 18.0
-size_flags_horizontal = 3
-
-[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/primary"]
-margin_left = 112.0
-margin_right = 141.0
-margin_bottom = 18.0
-theme = SubResource( 3 )
-text = "n/a"
-
-[node name="secondary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
-margin_top = 22.0
-margin_right = 141.0
-margin_bottom = 40.0
-
-[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
-margin_right = 104.0
-margin_bottom = 18.0
-theme = SubResource( 3 )
-text = "secondary:"
-
-[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
-margin_left = 108.0
-margin_right = 108.0
-margin_bottom = 18.0
-size_flags_horizontal = 3
-
-[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
-margin_left = 112.0
-margin_right = 141.0
-margin_bottom = 18.0
-theme = SubResource( 3 )
-text = "n/a"
-
-[node name="tertiary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
-margin_top = 44.0
-margin_right = 141.0
-margin_bottom = 62.0
-
-[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
-margin_right = 83.0
-margin_bottom = 18.0
-theme = SubResource( 3 )
-text = "tertiary:"
-
-[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
-margin_left = 87.0
-margin_right = 108.0
-margin_bottom = 18.0
-size_flags_horizontal = 3
-
-[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
-margin_left = 112.0
-margin_right = 141.0
-margin_bottom = 18.0
-theme = SubResource( 3 )
-text = "n/a"
-
-[node name="passive" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
-margin_top = 66.0
-margin_right = 141.0
-margin_bottom = 84.0
-
-[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
-margin_right = 76.0
-margin_bottom = 18.0
-theme = SubResource( 3 )
-text = "passive:"
-
-[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
-margin_left = 80.0
-margin_right = 108.0
-margin_bottom = 18.0
-size_flags_horizontal = 3
-
-[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
-margin_left = 112.0
-margin_right = 141.0
-margin_bottom = 18.0
-theme = SubResource( 3 )
-text = "n/a"
-
-[node name="VSeparator" type="VSeparator" parent="ShopContainer/MarginContainer/VBoxContainer/main_container"]
-margin_left = 145.0
-margin_right = 149.0
-margin_bottom = 317.0
-size_flags_vertical = 3
-
 [node name="items_for_sale" type="PanelContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container"]
-margin_left = 153.0
 margin_right = 884.0
 margin_bottom = 317.0
 size_flags_horizontal = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 2 )
 
 [node name="sale_items" type="VBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 711.0
+margin_right = 864.0
 margin_bottom = 297.0
 custom_constants/separation = -5
 
 [node name="repair_sale_item" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
-margin_right = 691.0
+margin_right = 844.0
 margin_bottom = 52.0
 item_name = "repair hull"
 
 [node name="SubGun" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
 margin_top = 47.0
-margin_right = 691.0
+margin_right = 844.0
 margin_bottom = 99.0
 item_name = "Primary: Sub Gun"
 cost = 20
@@ -245,7 +132,7 @@ weapon_name = "Sub Gun"
 
 [node name="DepthCharges" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
 margin_top = 94.0
-margin_right = 691.0
+margin_right = 844.0
 margin_bottom = 146.0
 item_name = "Secondary: Depth Charges"
 cost = 30
@@ -253,7 +140,7 @@ weapon_name = "Depth Charges"
 
 [node name="AquaRocket" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
 margin_top = 141.0
-margin_right = 691.0
+margin_right = 844.0
 margin_bottom = 193.0
 item_name = "Secondary: Aqua Rocket"
 cost = 40
@@ -261,7 +148,7 @@ weapon_name = "Aqua Rocket"
 
 [node name="TorpedoTube" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
 margin_top = 188.0
-margin_right = 691.0
+margin_right = 844.0
 margin_bottom = 240.0
 item_name = "Tertiary: Torpedo Tube"
 cost = 50
