@@ -51,23 +51,25 @@ size_flags_horizontal = 3
 [node name="TextureButton" type="TextureButton" parent="hbox"]
 margin_left = 172.0
 margin_right = 362.0
-margin_bottom = 49.0
+margin_bottom = 42.0
 texture_normal = ExtResource( 2 )
 texture_disabled = ExtResource( 4 )
 
 [node name="CenterContainer" type="CenterContainer" parent="hbox/TextureButton"]
 margin_right = 190.0
-margin_bottom = 49.0
+margin_bottom = 42.0
 mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="cost_label" type="Label" parent="hbox/TextureButton/CenterContainer"]
 margin_left = 44.0
-margin_top = 15.0
+margin_top = 12.0
 margin_right = 145.0
-margin_bottom = 33.0
+margin_bottom = 30.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "cost label"
 __meta__ = {
