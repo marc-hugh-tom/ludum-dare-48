@@ -22,10 +22,13 @@ func update_blood():
 		blood_t = 1.0 - (current_value/player_blood_threshold)
 	$PostProcessing.get_material().set_shader_param("blood_intensity", blood_t)
 
+var shop_visible = false
+
 func _process(delta):
-	if Input.is_action_just_pressed("shop"):
+	if Input.is_action_just_pressed("shop") and not shop_visible:
 		toggle_pause()
 		$Shop.arsenal = $ViewportContainer/Viewport/Foreground/sub.get_node("Arsenal")
+		shop_visible = true
 		$Shop.show()
 	update_explosions(delta)
 	update_blood()
@@ -34,6 +37,7 @@ func _process(delta):
 
 func _on_Shop_close():
 	toggle_pause()
+	shop_visible = false
 	$Shop.hide()
 
 func explosion_event(explosion_pos):
