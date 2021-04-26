@@ -6,7 +6,8 @@ onready var turret = sub.get_node("Turret")
 const WeaponResources = {
 	"HarpoonGun": preload("res://Scenes/Weapons/HarpoonGun.tscn"),
 	"SubGun": preload("res://Scenes/Weapons/SubGun.tscn"),
-	"DepthChares": preload("res://Scenes/Weapons/Blunderbuss.tscn"),
+	"DepthCharges": preload("res://Scenes/Weapons/Blunderbuss.tscn"),
+	"RocketLauncher": preload("res://Scenes/Weapons/RocketLauncher.tscn"),
 	"TorpedoTube": preload("res://Scenes/Weapons/TorpedoTube.tscn")
 }
 
@@ -17,7 +18,7 @@ var tertiary_weapon = null
 
 func _ready():
 	equip_primary("HarpoonGun")
-
+	# equip_secondary("RocketLauncher")
 
 
 func _process(delta):

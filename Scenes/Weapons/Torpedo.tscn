@@ -43,7 +43,7 @@ script = ExtResource( 9 )
 position = Vector2( 120, -0.914787 )
 rotation = 1.5708
 frames = SubResource( 1 )
-frame = 6
+frame = 2
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
