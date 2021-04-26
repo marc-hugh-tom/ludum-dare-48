@@ -15,7 +15,7 @@
  - https://freesound.org/people/gamer127/sounds/463067/
  - https://freesound.org/people/craigsmith/sounds/438737/
  - https://freesound.org/people/SoundFX.studio/sounds/456272/
- - Noise texture from Yoeri "Luos" Vleer: https://luos.itch.io/
+ - Noise textures from Yoeri "Luos" Vleer: https://luos.itch.io/
  - Scrap sound: https://freesound.org/s/378670/
 
 ## Music
