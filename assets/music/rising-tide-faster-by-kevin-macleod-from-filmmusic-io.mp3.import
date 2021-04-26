@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rising-tide-faster-by-kevin-macleod-from-filmmusic-io.mp3-974bfabf00d9e2fb31f2c8ca41f859bf.mp3str"
+
+[deps]
+
+source_file="res://assets/music/rising-tide-faster-by-kevin-macleod-from-filmmusic-io.mp3"
+dest_files=[ "res://.import/rising-tide-faster-by-kevin-macleod-from-filmmusic-io.mp3-974bfabf00d9e2fb31f2c8ca41f859bf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
