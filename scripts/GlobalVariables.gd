@@ -7,6 +7,9 @@ var scrap: int = 0
 var max_depth: int = 9999
 var max_scrap: int = 9999
 
+var max_boss_health: float = 100.0
+var boss_health: float = max_boss_health
+
 var max_health: float = 100.0
 var health: float = max_health
 
@@ -61,6 +64,15 @@ func set_health(val: float):
 func increment_health(val: float):
 	health += val
 
+func get_boss_health() -> float:
+	return health
+
+func decrement_boss_health(val: float):
+	health -= val
+
+func set_boss_health(val: float):
+	health = val
+
 func _process(delta):
 	update_depth(delta)
 
@@ -76,6 +88,7 @@ func reset():
 	set_health(max_health)
 	set_depth(0)
 	set_scrap(0)
+	set_boss_health(max_boss_health)
 
 func is_max_depth():
 	return abs(depth - max_depth) < 0.1

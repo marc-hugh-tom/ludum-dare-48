@@ -2,15 +2,19 @@ extends Node2D
 
 class_name Boss
 
-const DEBUG = true
+const DEBUG = false
 
 const MineResource = preload("res://Scenes/Mine/Mine.tscn")
 const mech_fish = preload("res://nodes/MechFish.tscn")
 const enemy_sub = preload("res://nodes/enemy_sub_1.tscn")
+onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 signal spawn_mine
 signal spawn_mechfish
 signal spawn_sub
+signal damage
+signal explosion
+signal dead
 
 class StateChange:
 	enum {
@@ -37,6 +41,8 @@ class State:
 		Spawn,
 		Idle,
 		
+		DestroyRightArm,
+		DestroyLeftArm,
 		
 		SpawnEnemies,
 		DropRightArm,
@@ -49,6 +55,8 @@ class State:
 		
 		ShakeBody,
 		SpawnBodyEnemies,
+		
+		Death,
 	}
 
 	var label: String
@@ -278,11 +286,86 @@ class SpawnEnemies extends State:
 		func process_state_changes(boss: Boss):
 			return StateChange.replace(State.Type.Idle)
 
+const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
+
+class DestroyRightArm extends State:
+	var frames = 0
+	var max_frames = 1
+	var right_arm = null
+	var right_arm_spawn = null
+	
+	func _init().("destroy_right_arm"): pass
+
+	func on_enter(boss: Boss):
+		right_arm = boss.get_node("right_arm")
+		right_arm_spawn = boss.get_node("right_arm/spawn_position")
+		frames = 0
+		boss.emit_signal("explosion", right_arm_spawn.global_position)
+
+	func process_state_changes(boss: Boss):
+		frames += 1
+		if frames >= max_frames:
+			right_arm.hide()
+			return StateChange.replace(State.Type.Idle)
+		return StateChange.none()
+
+class DestroyLeftArm extends State:
+	var frames = 0
+	var max_frames = 1
+	var left_arm = null
+	var left_arm_spawn = null
+	
+	func _init().("destroy_left_arm"): pass
+
+	func on_enter(boss: Boss):
+		left_arm = boss.get_node("left_arm")
+		left_arm_spawn = boss.get_node("left_arm/spawn_position")
+		frames = 0
+		boss.emit_signal("explosion", left_arm_spawn.global_position)
+
+	func process_state_changes(boss: Boss):
+		frames += 1
+		if frames >= max_frames:
+			left_arm.hide()
+			return StateChange.replace(State.Type.Idle)
+		return StateChange.none()
+
+class Death extends State:
+	var frames = 0
+	var max_frames = 500
+	var body = null
+	var body_spawn = null
+	
+	func _init().("destroy_left_arm"): pass
+
+	func on_enter(boss: Boss):
+		body = boss.get_node("body")
+		body_spawn = boss.get_node("body/spawn_position")
+		frames = 0
+
+	func process_state_changes(boss: Boss):
+		if frames < 300 and frames % 20 == 0:
+			boss.emit_signal("explosion", Vector2(
+				body_spawn.global_position.x + rand_range(-100, 100),
+				body_spawn.global_position.y + rand_range(-20, 40)
+			))
+
+		if frames > 300:
+			body.hide()
+
+		frames += 1
+		if frames >= max_frames:
+			boss.get_tree().call_group("playstate", "won")
+			return StateChange.replace(State.Type.Null)
+		return StateChange.none()
+
 onready var state_by_type: Dictionary = {
 	State.Type.Null: Null.new(),
 	State.Type.Spawn: Spawn.new(),
 	State.Type.Idle: Idle.new(),
 	
+	State.Type.DestroyRightArm: DestroyRightArm.new(),
+	State.Type.DestroyLeftArm: DestroyLeftArm.new(),
 	
 	State.Type.SpawnEnemies: SpawnEnemies.new(),
 	State.Type.DropRightArm: SpawnEnemies.DropRightArm.new(),
@@ -295,6 +378,8 @@ onready var state_by_type: Dictionary = {
 	
 	State.Type.ShakeBody: SpawnEnemies.ShakeBody.new(),
 	State.Type.SpawnBodyEnemies: SpawnEnemies.SpawnBodyEnemies.new(),
+	
+	State.Type.Death: Death.new(),
 }
 
 var state_graph = null
@@ -303,10 +388,11 @@ class Stage:
 	enum Type {
 		RightArm,
 		LeftArm,
-		Body
+		Body,
+		Dead
 	}
 
-var stage = Stage.Type.Body
+var stage = Stage.Type.RightArm
 
 export(NodePath) var player_path = null
 var player = null
@@ -317,11 +403,23 @@ func _ready():
 		player = get_node(player_path)
 		
 func _physics_process(delta: float):
+	var health = global.get_boss_health()
+	if health / global.max_boss_health <= 0.66 and stage == Stage.Type.RightArm:
+		stage = Stage.Type.LeftArm
+		state_graph = StateGraph.new(self, State.Type.DestroyRightArm, "root")
+	elif health / global.max_boss_health <= 0.33 and stage == Stage.Type.LeftArm:
+		stage = Stage.Type.Body
+		state_graph = StateGraph.new(self, State.Type.DestroyLeftArm, "root")
+	elif health <= 0 and stage == Stage.Type.Body:
+		stage = Stage.Type.Dead
+		state_graph = StateGraph.new(self, State.Type.Death, "root")
+	
+
 	state_graph.physics_process(delta, self)
-
-func on_damage(damage):
-	print(damage)
-
+	
+func on_damage(amount):
+	emit_signal("damage", amount)
+	global.decrement_boss_health(amount)
 
 func _on_body_on_damage(amount):
 	on_damage(amount)

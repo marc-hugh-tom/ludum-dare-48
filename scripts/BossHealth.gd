@@ -7,7 +7,7 @@ var update_speed = 0.1
 
 onready var global = get_tree().get_root().get_node("GlobalVariables")
 
-onready var current_value = global.get_health()
+onready var current_value = global.get_boss_health()
 onready var lag_value = current_value
 var update_timer = 0.0
 
@@ -25,8 +25,5 @@ func _process(delta):
 	meter.get_material().set_shader_param("current_value", current_value)
 	meter.get_material().set_shader_param("lag_value", lag_value)
 
-func _on_sub_damage_taken(amount):
+func _on_boss_spawner_boss_damage(amount):
 	take_damage(amount)
-
-func _on_Shop_on_repair():
-	current_value = global.get_health()
