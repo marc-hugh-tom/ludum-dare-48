@@ -6,6 +6,8 @@ const credits_scene = preload("res://nodes/CreditsState.tscn")
 const controls_scene = preload("res://nodes/ControlsState.tscn")
 const scene_transition = preload("res://nodes/SceneTransition.tscn")
 
+onready var global = get_tree().get_root().get_node("GlobalVariables")
+
 func _ready():
 	set_pause_mode(PAUSE_MODE_PROCESS)
 	var transition = scene_transition.instance()
@@ -20,6 +22,7 @@ func start_new_game():
 
 func deferred_new_game():
 	clear_scene()
+	global.reset()
 	var new_game = play_scene.instance()
 	new_game.connect("quit", self, "start_menu")
 	new_game.connect("restart", self, "start_new_game")
@@ -32,7 +35,6 @@ func start_menu():
 		initiate_fade_to_black("deferred_start_menu")
 
 func deferred_start_menu():
-	get_tree().set_pause(false)
 	clear_scene()
 	var menu = menu_scene.instance()
 	menu.connect("start_game", self, "start_controls")
@@ -67,6 +69,7 @@ func deferred_start_credits():
 func clear_scene():
 	for child in get_children():
 		child.free()
+	get_tree().set_pause(false)
 
 func initiate_fade_to_black(input_callback_str):
 	var transition = scene_transition.instance()
