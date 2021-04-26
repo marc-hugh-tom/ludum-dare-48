@@ -37,9 +37,15 @@ func _on_repair_sale_item_buy():
 	global.set_health(global.max_health)
 	repair_sale_item.set_cost(repair_cost())
 	emit_signal("on_repair")
+	
+func _on_SubGun_buy():
+	get_tree().call_group("Arsenal", "equip_primary", "SubGun")
 
 func _on_Depth_Charges_buy():
 	get_tree().call_group("Arsenal", "equip_secondary", "DepthChares")
 
 func _on_Torpedo_buy():
 	get_tree().call_group("Arsenal", "equip_tertiary", "TorpedoTube")
+
+
+

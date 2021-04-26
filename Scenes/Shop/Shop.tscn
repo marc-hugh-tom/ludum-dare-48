@@ -276,5 +276,6 @@ weapon_name = "Gauss Gun"
 [connection signal="visibility_changed" from="." to="." method="_on_Shop_visibility_changed"]
 [connection signal="pressed" from="ShopContainer/MarginContainer/VBoxContainer/menu_bar/close" to="." method="_on_TextureButton_pressed"]
 [connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/repair_sale_item" to="." method="_on_repair_sale_item_buy"]
+[connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/SubGun" to="." method="_on_SubGun_buy"]
 [connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/DepthCharges" to="." method="_on_Depth_Charges_buy"]
 [connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/TorpedoTube" to="." method="_on_Torpedo_buy"]
