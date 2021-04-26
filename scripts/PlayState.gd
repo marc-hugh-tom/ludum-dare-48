@@ -93,13 +93,13 @@ func setup_callbacks():
 func twitter_share(won):
 	if won:
 		var _return = OS.shell_open("http://twitter.com/share?text=" +
-			"I defeated the boss in NAME&url=" +
-			"https://manicmoleman.itch.io/blood-moon" +
+			"I defeated the boss in SUBGUNNER!&url=" +
+			"https://manicmoleman.itch.io/subgunner" +
 			"&hashtags=LDJAM,ldjam48,LD48,GodotEngine")
 	else:
 		var _return = OS.shell_open("http://twitter.com/share?text=" +
-			"I made it " + str(int(twitter_depth)) + "m under the sea in NAME&url=" +
-			"https://manicmoleman.itch.io/blood-moon" +
+			"I made it " + str(int(twitter_depth)) + "m under the sea in SUBGUNNER!&url=" +
+			"https://manicmoleman.itch.io/subgunner" +
 			"&hashtags=LDJAM,ldjam48,LD48,GodotEngine")
 
 func toggle_pause_menu():

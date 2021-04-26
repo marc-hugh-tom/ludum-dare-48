@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/MenuState.gd" type="Script" id=1]
 [ext_resource path="res://nodes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/bubble.png" type="Texture" id=3]
+[ext_resource path="res://nodes/ui/MainTitleFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://nodes/ui/ButtonTheme.tres" type="Theme" id=5]
 
 [sub_resource type="ParticlesMaterial" id=1]
@@ -33,11 +34,13 @@ texture = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 64.0
-margin_top = 64.0
+margin_top = 96.0
 margin_right = 960.0
-margin_bottom = 256.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "SUBATTACK"
+margin_bottom = 232.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 0.921569, 0.133333, 1 )
+custom_colors/font_outline_modulate = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "SUBGUNNER"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

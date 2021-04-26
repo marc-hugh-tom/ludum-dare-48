@@ -1,9 +1,126 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=138 format=2]
 
 [ext_resource path="res://scripts/ControlsState.gd" type="Script" id=1]
 [ext_resource path="res://nodes/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/bubble.png" type="Texture" id=3]
 [ext_resource path="res://nodes/ui/ButtonTheme.tres" type="Theme" id=4]
+[ext_resource path="res://nodes/ui/TextFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_29.png" type="Texture" id=7]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_28.png" type="Texture" id=8]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_31.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_07.png" type="Texture" id=10]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_05.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_03.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_04.png" type="Texture" id=13]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_11.png" type="Texture" id=14]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_21.png" type="Texture" id=15]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_07.png" type="Texture" id=16]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_18.png" type="Texture" id=17]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_19.png" type="Texture" id=18]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_15.png" type="Texture" id=19]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_17.png" type="Texture" id=20]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_12.png" type="Texture" id=21]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_15.png" type="Texture" id=22]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_10.png" type="Texture" id=23]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_00.png" type="Texture" id=24]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_14.png" type="Texture" id=25]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_12.png" type="Texture" id=26]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_08.png" type="Texture" id=27]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_29.png" type="Texture" id=28]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_16.png" type="Texture" id=29]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_03.png" type="Texture" id=30]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_11.png" type="Texture" id=31]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_01.png" type="Texture" id=32]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_22.png" type="Texture" id=33]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_20.png" type="Texture" id=34]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_23.png" type="Texture" id=35]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_31.png" type="Texture" id=36]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_02.png" type="Texture" id=37]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_04.png" type="Texture" id=38]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_27.png" type="Texture" id=39]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_28.png" type="Texture" id=40]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_30.png" type="Texture" id=41]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_24.png" type="Texture" id=42]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_26.png" type="Texture" id=43]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_25.png" type="Texture" id=44]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_09.png" type="Texture" id=45]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_13.png" type="Texture" id=46]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_05.png" type="Texture" id=47]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_10.png" type="Texture" id=48]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_16.png" type="Texture" id=49]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_17.png" type="Texture" id=50]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_13.png" type="Texture" id=51]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_14.png" type="Texture" id=52]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_21.png" type="Texture" id=53]
+[ext_resource path="res://assets/mechfish/sprites/mechfish_06.png" type="Texture" id=54]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_18.png" type="Texture" id=55]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_19.png" type="Texture" id=56]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_24.png" type="Texture" id=57]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_23.png" type="Texture" id=58]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_20.png" type="Texture" id=59]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_22.png" type="Texture" id=60]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_25.png" type="Texture" id=61]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_26.png" type="Texture" id=62]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_30.png" type="Texture" id=63]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_27.png" type="Texture" id=64]
+[ext_resource path="res://assets/mine/mine_09.png" type="Texture" id=65]
+[ext_resource path="res://assets/mine/mine_07.png" type="Texture" id=66]
+[ext_resource path="res://assets/mine/mine_08.png" type="Texture" id=67]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_06.png" type="Texture" id=68]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_08.png" type="Texture" id=69]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_00.png" type="Texture" id=70]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_09.png" type="Texture" id=71]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_02.png" type="Texture" id=72]
+[ext_resource path="res://assets/enemy_sub_1/sprites/sub_01.png" type="Texture" id=73]
+[ext_resource path="res://assets/mine/mine_02.png" type="Texture" id=74]
+[ext_resource path="res://assets/sub/sprites/sub_00.png" type="Texture" id=75]
+[ext_resource path="res://nodes/turret.tscn" type="PackedScene" id=76]
+[ext_resource path="res://assets/mine/mine_06.png" type="Texture" id=77]
+[ext_resource path="res://assets/mine/mine_04.png" type="Texture" id=78]
+[ext_resource path="res://assets/mine/mine_01.png" type="Texture" id=79]
+[ext_resource path="res://assets/mine/mine_05.png" type="Texture" id=80]
+[ext_resource path="res://assets/mine/mine_03.png" type="Texture" id=81]
+[ext_resource path="res://assets/mine/mine_00.png" type="Texture" id=82]
+[ext_resource path="res://Scenes/Weapons/Arsenal.tscn" type="PackedScene" id=83]
+[ext_resource path="res://assets/mine/mine_12.png" type="Texture" id=84]
+[ext_resource path="res://assets/mine/mine_10.png" type="Texture" id=85]
+[ext_resource path="res://assets/mine/mine_11.png" type="Texture" id=86]
+[ext_resource path="res://assets/mine/mine_13.png" type="Texture" id=87]
+[ext_resource path="res://assets/mine/mine_14.png" type="Texture" id=88]
+[ext_resource path="res://assets/mine/mine_15.png" type="Texture" id=89]
+[ext_resource path="res://assets/mine/mine_18.png" type="Texture" id=90]
+[ext_resource path="res://assets/mine/mine_19.png" type="Texture" id=91]
+[ext_resource path="res://assets/mine/mine_21.png" type="Texture" id=92]
+[ext_resource path="res://assets/mine/mine_17.png" type="Texture" id=93]
+[ext_resource path="res://assets/mine/mine_16.png" type="Texture" id=94]
+[ext_resource path="res://assets/mine/mine_20.png" type="Texture" id=95]
+[ext_resource path="res://assets/mine/mine_22.png" type="Texture" id=96]
+[ext_resource path="res://assets/mine/mine_23.png" type="Texture" id=97]
+[ext_resource path="res://assets/mine/mine_25.png" type="Texture" id=98]
+[ext_resource path="res://assets/mine/mine_24.png" type="Texture" id=99]
+[ext_resource path="res://assets/mine/mine_26.png" type="Texture" id=100]
+[ext_resource path="res://assets/mine/mine_28.png" type="Texture" id=101]
+[ext_resource path="res://assets/mine/mine_27.png" type="Texture" id=102]
+[ext_resource path="res://assets/mine/mine_30.png" type="Texture" id=103]
+[ext_resource path="res://assets/mine/mine_29.png" type="Texture" id=104]
+[ext_resource path="res://assets/mine/mine_31.png" type="Texture" id=105]
+[ext_resource path="res://assets/sub/sprites/sub_04.png" type="Texture" id=106]
+[ext_resource path="res://assets/sub/sprites/sub_05.png" type="Texture" id=107]
+[ext_resource path="res://assets/sub/sprites/sub_07.png" type="Texture" id=108]
+[ext_resource path="res://assets/sub/sprites/sub_03.png" type="Texture" id=109]
+[ext_resource path="res://assets/sub/sprites/sub_06.png" type="Texture" id=110]
+[ext_resource path="res://assets/sub/sprites/sub_02.png" type="Texture" id=111]
+[ext_resource path="res://assets/sub/sprites/sub_01.png" type="Texture" id=112]
+[ext_resource path="res://nodes/Bubbles.tscn" type="PackedScene" id=113]
+[ext_resource path="res://assets/sub/sprites/sub_08.png" type="Texture" id=114]
+[ext_resource path="res://assets/sub/sprites/sub_09.png" type="Texture" id=115]
+[ext_resource path="res://assets/sub/sprites/sub_11.png" type="Texture" id=116]
+[ext_resource path="res://assets/sub/sprites/sub_12.png" type="Texture" id=117]
+[ext_resource path="res://assets/sub/sprites/sub_10.png" type="Texture" id=118]
+[ext_resource path="res://assets/sub/sprites/sub_13.png" type="Texture" id=119]
+[ext_resource path="res://assets/sub/sprites/sub_14.png" type="Texture" id=120]
+[ext_resource path="res://assets/sub/sprites/sub_15.png" type="Texture" id=121]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
@@ -18,12 +135,330 @@ orbit_velocity_random = 0.0
 scale = 0.2
 scale_random = 0.2
 
-[sub_resource type="DynamicFontData" id=2]
-font_path = "res://raw_assets/font/Aquifer.ttf"
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 5
+font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 24
-font_data = SubResource( 2 )
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 121 ) ],
+"loop": false,
+"name": "r",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 75 ) ],
+"loop": false,
+"name": "l",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 121 ), ExtResource( 120 ), ExtResource( 119 ), ExtResource( 117 ), ExtResource( 116 ), ExtResource( 118 ), ExtResource( 115 ), ExtResource( 114 ), ExtResource( 108 ), ExtResource( 110 ), ExtResource( 107 ), ExtResource( 106 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 75 ) ],
+"loop": false,
+"name": "flip_r_l",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 112 ), ExtResource( 111 ), ExtResource( 109 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 110 ), ExtResource( 108 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 118 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ) ],
+"loop": false,
+"name": "flip_l_r",
+"speed": 20.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 24.2429
+height = 272.726
+
+[sub_resource type="Animation" id=3]
+resource_name = "died"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "explode"
+}, {
+"args": [  ],
+"method": "trigger_end_game"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "flip_l_r", "r" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:shape:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 272.726, 40.0, 272.726 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 69.697, -42.4242 ), Vector2( -69.697, -42.424 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Turret:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -89.7729, -46.2122 ), Vector2( 94.8305, -45.4095 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Turret:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.15, 0.4, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "flip_r_l", "l" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CollisionShape2D:shape:height")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 272.726, 40.0, 272.726 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Particles2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -69.697, -42.424 ), Vector2( 69.697, -42.4242 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Turret:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 93.6266, -46.2122 ), Vector2( -89.7729, -45.8108 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Turret:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.35, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 24 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 30 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 16 ), ExtResource( 27 ), ExtResource( 45 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 46 ), ExtResource( 25 ), ExtResource( 19 ), ExtResource( 29 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 34 ), ExtResource( 15 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 28 ), ExtResource( 41 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 9.0
+height = 44.0
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 0, 1, 0 )
+spread = 10.0
+gravity = Vector3( 0, -100, 0 )
+initial_velocity = 150.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+scale_random = 0.2
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 57 ) ],
+"loop": true,
+"name": "r",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 69 ) ],
+"loop": true,
+"name": "l",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 64 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 63 ), ExtResource( 9 ), ExtResource( 70 ), ExtResource( 73 ), ExtResource( 72 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 68 ), ExtResource( 10 ), ExtResource( 69 ) ],
+"loop": true,
+"name": "r_to_l",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 69 ), ExtResource( 71 ), ExtResource( 48 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 22 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 59 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 57 ) ],
+"loop": true,
+"name": "l_to_r",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 18.4654
+height = 136.209
+
+[sub_resource type="Animation" id=13]
+resource_name = "l_to_r"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "l_to_r", "r" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "r_to_l", "l" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
+}
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 12.8056
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 82 ), ExtResource( 79 ), ExtResource( 74 ), ExtResource( 81 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 77 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 65 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 84 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 94 ), ExtResource( 93 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 95 ), ExtResource( 92 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 99 ), ExtResource( 98 ), ExtResource( 100 ), ExtResource( 102 ), ExtResource( 101 ), ExtResource( 104 ), ExtResource( 103 ), ExtResource( 105 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
 
 [node name="CreditsState" type="Node2D"]
 script = ExtResource( 1 )
@@ -41,50 +476,223 @@ texture = ExtResource( 3 )
 [node name="Column" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 160.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 960.0
+margin_bottom = 576.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="Label" parent="Column"]
-margin_right = 1024.0
-margin_bottom = 52.0
-custom_fonts/font = SubResource( 3 )
-text = "Design, programming, and art
-Hugh Grigg
-Marc Jones
-Tom Craven
+[node name="Title" type="Label" parent="Column"]
+margin_right = 896.0
+margin_bottom = 68.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.917647, 0.133333, 1 )
+custom_colors/font_outline_modulate = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "CONTROLS"
+align = 1
 
-Music
-Tom Craven
+[node name="HBoxContainer" type="HBoxContainer" parent="Column"]
+margin_top = 88.0
+margin_right = 896.0
+margin_bottom = 458.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-A wide range of images, sounds, and fonts were used in this project.
-For a full list of attributions, please see the game's GitHub repository:
-https://github.com/marc-hugh-tom/game-off-2020"
+[node name="MarginContainer" type="MarginContainer" parent="Column/HBoxContainer"]
+margin_right = 454.0
+margin_bottom = 370.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Column/HBoxContainer"]
+margin_left = 458.0
+margin_right = 896.0
+margin_bottom = 370.0
+custom_constants/separation = 20
+
+[node name="Text" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_right = 438.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "Use [WASD] to move your sub"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text2" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 438.0
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "Use [MOUSE] to aim"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text3" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 438.0
+margin_bottom = 109.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "Use [LMB] to shoot primary weapon"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text4" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_top = 129.0
+margin_right = 438.0
+margin_bottom = 152.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "Use [RMB] to shoot secondary weapon"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text5" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_top = 172.0
+margin_right = 438.0
+margin_bottom = 195.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "Use [SPACE] to shoot tertiary weapon"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text7" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_top = 215.0
+margin_right = 438.0
+margin_bottom = 238.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "Watch out for enemies"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text6" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_top = 258.0
+margin_right = 438.0
+margin_bottom = 281.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "Good Luck!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MarginContainer" type="CenterContainer" parent="Column"]
-margin_top = 72.0
-margin_right = 1024.0
-margin_bottom = 440.0
-size_flags_vertical = 3
+margin_top = 478.0
+margin_right = 896.0
+margin_bottom = 528.0
 theme = ExtResource( 4 )
 
 [node name="StartButton" type="Button" parent="Column/MarginContainer"]
-margin_left = 384.0
-margin_top = 159.0
-margin_right = 640.0
-margin_bottom = 209.0
-rect_min_size = Vector2( 256, 50 )
+margin_left = 328.0
+margin_right = 568.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 240, 50 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Dive!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="sub" type="KinematicBody2D" parent="."]
+position = Vector2( 224, 192 )
+scale = Vector2( 0.33, 0.33 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="sub"]
+frames = SubResource( 6 )
+animation = "l"
+
+[node name="Turret" parent="sub" instance=ExtResource( 76 )]
+position = Vector2( -89.7729, -45.8108 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sub"]
+position = Vector2( 10.9848, -25.3788 )
+rotation = -1.5708
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sub"]
+anims/died = SubResource( 3 )
+anims/flip_l_r = SubResource( 4 )
+anims/flip_r_l = SubResource( 5 )
+
+[node name="Particles2D" parent="sub" instance=ExtResource( 113 )]
+position = Vector2( 69.697, -42.4242 )
+
+[node name="Arsenal" parent="sub" instance=ExtResource( 83 )]
+
+[node name="MechFish" type="KinematicBody2D" parent="."]
+position = Vector2( 168, 384 )
+rotation = 1.0472
+collision_layer = 5
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MechFish"]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MechFish"]
+position = Vector2( 0, 30 )
+shape = SubResource( 9 )
+
+[node name="Particles2D" type="Particles2D" parent="MechFish"]
+position = Vector2( 0, 60 )
+amount = 50
+lifetime = 4.0
+local_coords = false
+process_material = SubResource( 10 )
+texture = ExtResource( 3 )
+
+[node name="enemy_sub" type="KinematicBody2D" parent="."]
+position = Vector2( 232, 351 )
+scale = Vector2( 0.25, 0.25 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="enemy_sub"]
+frames = SubResource( 11 )
+animation = "r"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_sub"]
+position = Vector2( 0, 7.56808 )
+rotation = 1.5708
+shape = SubResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy_sub"]
+anims/l_to_r = SubResource( 13 )
+anims/r_to_l = SubResource( 14 )
+
+[node name="Mine" type="Area2D" parent="."]
+position = Vector2( 312, 400 )
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mine"]
+shape = SubResource( 15 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Mine"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 16 )
+frame = 25
+playing = true
+
+[connection signal="body_entered" from="Mine" to="Mine" method="_on_Mine_body_entered"]

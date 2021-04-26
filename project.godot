@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludum Dare 48"
-run/main_scene="res://nodes/PlayState.tscn"
+run/main_scene="res://nodes/SceneManager.tscn"
 config/icon="res://icon.png"
 
 [autoload]
