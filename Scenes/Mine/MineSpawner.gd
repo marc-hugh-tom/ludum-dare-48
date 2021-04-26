@@ -20,7 +20,6 @@ func spawn_mine(position = null, boss = null):
 		mine.position = position
 	mine.boss = boss
 	get_parent().add_child(mine)
-	print("spawned mine at ", mine.position)
 
 
 func select_spawn_point() -> Vector2:

@@ -10,7 +10,7 @@ func _ready():
 	
 
 func get_weapon_name():
-	return "Torpedo"
+	return "Torpedo Tube"
 
 
 func fire_once(source):
