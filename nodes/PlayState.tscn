@@ -13,6 +13,7 @@
 [ext_resource path="res://shaders/global.shader" type="Shader" id=11]
 [ext_resource path="res://test.png" type="Texture" id=12]
 [ext_resource path="res://nodes/ui/ButtonTheme.tres" type="Theme" id=13]
+[ext_resource path="res://Scenes/Shop/Shop.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("ViewportContainer/Viewport")
@@ -64,6 +65,7 @@ scale = Vector2( 32, 18.7812 )
 texture = ExtResource( 10 )
 
 [node name="HUD" type="Node2D" parent="."]
+pause_mode = 2
 
 [node name="HullIntegrity" parent="HUD" instance=ExtResource( 5 )]
 position = Vector2( 96, 40 )
@@ -225,4 +227,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Quit"
 
+[node name="Shop" parent="." instance=ExtResource( 14 )]
+pause_mode = 2
+visible = false
+
 [connection signal="damage_taken" from="ViewportContainer/Viewport/Foreground/sub" to="HUD/HullIntegrity" method="_on_sub_damage_taken"]
+[connection signal="close" from="Shop" to="." method="_on_Shop_close"]
+[connection signal="on_repair" from="Shop" to="HUD/HullIntegrity" method="_on_Shop_on_repair"]

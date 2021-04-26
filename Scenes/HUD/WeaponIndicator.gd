@@ -2,7 +2,7 @@ extends Node2D
 
 onready var primary_label = $Panel/Grid/Primary
 onready var secondary_label = $Panel/Grid/Secondary
-onready var tertiary_label = $Panel/Grid/Tetiary
+onready var tertiary_label = $Panel/Grid/Tertiary
 
 func _ready():
 	add_to_group("WeaponSlots")

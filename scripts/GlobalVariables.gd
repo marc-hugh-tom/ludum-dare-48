@@ -7,6 +7,9 @@ var scrap: int = 0
 var max_depth: int = 9999
 var max_scrap: int = 9999
 
+var max_health: float = 100.0
+var health: float = max_health
+
 func get_depth() -> float:
 	return(depth)
 
@@ -32,11 +35,27 @@ func increment_scrap(val: int):
 	scrap += val
 	scrap = min(scrap, max_scrap)
 
+func decrement_scrap(val: int):
+	scrap -= val
+	scrap = max(scrap, 0)
+
 func set_scrap(val: int):
 	scrap = val
 
 func get_max_depth() -> int:
 	return(max_depth)
+
+func get_health() -> float:
+	return health
+
+func decrement_health(val: float):
+	health -= val
+
+func set_health(val: float):
+	health = val
+
+func increment_health(val: float):
+	health += val
 
 func _process(delta):
 	update_depth(delta)
@@ -47,3 +66,4 @@ func update_depth(delta):
 		current_depth - get_scroll_vector().y * delta,
 		get_max_depth()
 	))
+

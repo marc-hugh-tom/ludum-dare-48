@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/strike.ogg-23f3b55e401be310bdb32ea5eca70497.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/strike.ogg"
+dest_files=[ "res://.import/strike.ogg-23f3b55e401be310bdb32ea5eca70497.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

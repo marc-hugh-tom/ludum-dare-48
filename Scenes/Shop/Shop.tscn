@@ -1,0 +1,243 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/ui/red_cross.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Shop/Shop.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scenes/Shop/SaleItem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Shop/theme.tres" type="Theme" id=6]
+[ext_resource path="res://assets/ui/blue_panel.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.168627, 0.168627, 0.168627, 1 )
+
+[node name="Shop" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopContainer" type="NinePatchRect" parent="."]
+margin_left = 50.0
+margin_top = 100.0
+margin_right = 974.0
+margin_bottom = 550.0
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 100, 100 )
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 10
+patch_margin_bottom = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopContainer/MarginContainer"]
+margin_right = 884.0
+margin_bottom = 410.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_bar" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer"]
+margin_right = 884.0
+margin_bottom = 81.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/menu_bar"]
+margin_right = 325.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+
+[node name="title" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/menu_bar"]
+margin_left = 329.0
+margin_right = 533.0
+margin_bottom = 81.0
+custom_fonts/font = SubResource( 1 )
+text = "SHOp"
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/menu_bar"]
+margin_left = 537.0
+margin_right = 862.0
+margin_bottom = 81.0
+size_flags_horizontal = 3
+
+[node name="close" type="TextureButton" parent="ShopContainer/MarginContainer/VBoxContainer/menu_bar"]
+margin_left = 866.0
+margin_right = 884.0
+margin_bottom = 81.0
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="ShopContainer/MarginContainer/VBoxContainer"]
+margin_top = 85.0
+margin_right = 884.0
+margin_bottom = 89.0
+
+[node name="main_container" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 884.0
+margin_bottom = 410.0
+size_flags_vertical = 3
+
+[node name="owned_items" type="VBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container"]
+margin_right = 141.0
+margin_bottom = 317.0
+size_flags_vertical = 3
+
+[node name="primary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
+margin_right = 141.0
+margin_bottom = 18.0
+
+[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/primary"]
+margin_right = 78.0
+margin_bottom = 18.0
+theme = ExtResource( 6 )
+text = "primary:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/primary"]
+margin_left = 82.0
+margin_right = 108.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+
+[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/primary"]
+margin_left = 112.0
+margin_right = 141.0
+margin_bottom = 18.0
+theme = SubResource( 3 )
+text = "n/a"
+
+[node name="secondary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
+margin_top = 22.0
+margin_right = 141.0
+margin_bottom = 40.0
+
+[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
+margin_right = 104.0
+margin_bottom = 18.0
+theme = SubResource( 3 )
+text = "secondary:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
+margin_left = 108.0
+margin_right = 108.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+
+[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/secondary"]
+margin_left = 112.0
+margin_right = 141.0
+margin_bottom = 18.0
+theme = SubResource( 3 )
+text = "n/a"
+
+[node name="tertiary" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
+margin_top = 44.0
+margin_right = 141.0
+margin_bottom = 62.0
+
+[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
+margin_right = 83.0
+margin_bottom = 18.0
+theme = SubResource( 3 )
+text = "tertiary:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
+margin_left = 87.0
+margin_right = 108.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+
+[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/tertiary"]
+margin_left = 112.0
+margin_right = 141.0
+margin_bottom = 18.0
+theme = SubResource( 3 )
+text = "n/a"
+
+[node name="passive" type="HBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items"]
+margin_top = 66.0
+margin_right = 141.0
+margin_bottom = 84.0
+
+[node name="type_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
+margin_right = 76.0
+margin_bottom = 18.0
+theme = SubResource( 3 )
+text = "passive:"
+
+[node name="MarginContainer" type="MarginContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
+margin_left = 80.0
+margin_right = 108.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+
+[node name="value_label" type="Label" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/owned_items/passive"]
+margin_left = 112.0
+margin_right = 141.0
+margin_bottom = 18.0
+theme = SubResource( 3 )
+text = "n/a"
+
+[node name="VSeparator" type="VSeparator" parent="ShopContainer/MarginContainer/VBoxContainer/main_container"]
+margin_left = 145.0
+margin_right = 149.0
+margin_bottom = 317.0
+size_flags_vertical = 3
+
+[node name="items_for_sale" type="PanelContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container"]
+margin_left = 153.0
+margin_right = 884.0
+margin_bottom = 317.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 4 )
+
+[node name="sale_items" type="VBoxContainer" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 711.0
+margin_bottom = 297.0
+
+[node name="repair_sale_item" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 0.0
+margin_right = 691.0
+margin_bottom = 59.0
+item_name = "repair hull"
+
+[connection signal="visibility_changed" from="." to="." method="_on_Shop_visibility_changed"]
+[connection signal="pressed" from="ShopContainer/MarginContainer/VBoxContainer/menu_bar/close" to="." method="_on_TextureButton_pressed"]
+[connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/repair_sale_item" to="." method="_on_repair_sale_item_buy"]

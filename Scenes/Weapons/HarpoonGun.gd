@@ -3,6 +3,10 @@ extends Node2D
 const Harpoon = preload("res://Scenes/Weapons/Harpoon.tscn")
 var foreground_ref
 
+func _ready():
+	$Timer.stop()
+
+
 func get_weapon_name():
 	return "Harpoons"
 

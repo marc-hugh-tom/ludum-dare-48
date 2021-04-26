@@ -14,7 +14,15 @@ func _ready():
 	randomize()
 
 func _process(delta):
+	if Input.is_action_just_pressed("shop"):
+		get_tree().paused = true
+		$Shop.arsenal = $ViewportContainer/Viewport/Foreground/sub.get_node("Arsenal")
+		$Shop.show()
 	update_explosions(delta)
+
+func _on_Shop_close():
+	get_tree().paused = false
+	$Shop.hide()
 
 func explosion_event(explosion_pos):
 	explosion_array.append({
