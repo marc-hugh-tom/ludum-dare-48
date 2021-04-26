@@ -274,4 +274,5 @@ cost = 60
 [connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/repair_sale_item" to="." method="_on_repair_sale_item_buy"]
 [connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/SubGun" to="." method="_on_SubGun_buy"]
 [connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/DepthCharges" to="." method="_on_Depth_Charges_buy"]
+[connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/AquaRocket" to="." method="_on_AquaRocket_buy"]
 [connection signal="buy" from="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items/TorpedoTube" to="." method="_on_Torpedo_buy"]

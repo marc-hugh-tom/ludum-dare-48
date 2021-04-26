@@ -42,10 +42,10 @@ func _on_SubGun_buy():
 	get_tree().call_group("Arsenal", "equip_primary", "SubGun")
 
 func _on_Depth_Charges_buy():
-	get_tree().call_group("Arsenal", "equip_secondary", "DepthChares")
+	get_tree().call_group("Arsenal", "equip_secondary", "DepthCharges")
+	
+func _on_AquaRocket_buy():
+	get_tree().call_group("Arsenal", "equip_secondary", "RocketLauncher")
 
 func _on_Torpedo_buy():
 	get_tree().call_group("Arsenal", "equip_tertiary", "TorpedoTube")
-
-
-
