@@ -72,3 +72,6 @@ func reset():
 	set_health(max_health)
 	set_depth(0)
 	set_scrap(0)
+
+func is_max_depth():
+	return abs(depth - max_depth) < 0.1
