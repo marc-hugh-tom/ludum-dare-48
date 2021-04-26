@@ -216,6 +216,8 @@ func _ready():
 	
 	movement_graph = MovementGraph.new(self)
 	shoot_graph = ShootGraph.new(self)
+	
+	add_to_group("enemy")
 
 func init(player: Node):
 	self.player = player

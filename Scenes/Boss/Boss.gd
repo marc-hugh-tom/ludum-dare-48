@@ -8,6 +8,10 @@ const MineResource = preload("res://Scenes/Mine/Mine.tscn")
 const mech_fish = preload("res://nodes/MechFish.tscn")
 const enemy_sub = preload("res://nodes/enemy_sub_1.tscn")
 
+signal spawn_mine
+signal spawn_mechfish
+signal spawn_sub
+
 class StateChange:
 	enum {
 		None,
@@ -180,10 +184,7 @@ class SpawnEnemies extends State:
 			right_arm = boss.get_node("right_arm")
 
 		func physics_process(delta: float, boss: Boss):
-			var mine = MineResource.instance()
-			mine.position = right_arm_spawn.global_position
-			mine.boss = right_arm
-			boss.get_parent().add_child(mine)
+			boss.emit_signal("spawn_mine", [right_arm_spawn.global_position, right_arm])
 
 		func process_state_changes(boss: Boss):
 			return StateChange.replace(State.Type.Idle)
@@ -235,17 +236,14 @@ class SpawnEnemies extends State:
 			left_arm = boss.get_node("left_arm")
 
 		func physics_process(delta: float, boss: Boss):
-			var fish = mech_fish.instance()
-			fish.position = left_arm_spawn.global_position
-			fish.init(boss.player)
-			boss.get_parent().add_child(fish)
+			boss.emit_signal("spawn_mechfish", [left_arm_spawn.global_position, left_arm])
 
 		func process_state_changes(boss: Boss):
 			return StateChange.replace(State.Type.Idle)
 
 	class ShakeBody extends State:
 		var frames = 0
-		var max_frames = 500
+		var max_frames = 200
 		var body = null
 		var shake_delta = 0
 		
@@ -262,7 +260,7 @@ class SpawnEnemies extends State:
 			return StateChange.none()
 
 		func physics_process(delta: float, boss: Boss):
-			if frames > 300:
+			if frames > 100:
 				shake_delta += delta
 				body.position.x += cos(shake_delta * 50) * 5
 
@@ -275,10 +273,7 @@ class SpawnEnemies extends State:
 			body_spawn = boss.get_node("body/spawn_position")
 
 		func physics_process(delta: float, boss: Boss):
-			var sub = enemy_sub.instance()
-			sub.position = body_spawn.global_position
-			sub.init(boss.player)
-			boss.get_parent().add_child(sub)
+			boss.emit_signal("spawn_sub", body_spawn.global_position)
 
 		func process_state_changes(boss: Boss):
 			return StateChange.replace(State.Type.Idle)
@@ -311,16 +306,28 @@ class Stage:
 		Body
 	}
 
-var stage = Stage.Type.RightArm
+var stage = Stage.Type.Body
 
 export(NodePath) var player_path = null
 var player = null
 
 func _ready():
 	state_graph = StateGraph.new(self, State.Type.Spawn, "root")
-	
 	if player_path != null:
 		player = get_node(player_path)
-
+		
 func _physics_process(delta: float):
 	state_graph.physics_process(delta, self)
+
+func on_damage(damage):
+	print(damage)
+
+
+func _on_body_on_damage(amount):
+	on_damage(amount)
+
+func _on_left_arm_on_damage(amount):
+	on_damage(amount)
+
+func _on_right_arm_on_damage(amount):
+	on_damage(amount)
