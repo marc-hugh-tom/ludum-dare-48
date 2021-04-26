@@ -14,7 +14,7 @@ var mech_fish = preload("res://nodes/MechFish.tscn")
 var enemy_sub = preload("res://nodes/enemy_sub_1.tscn")
 
 func _ready():
-	pass#$Timer.start()
+	$Timer.start()
 
 func return_enemy_formation():
 	var screen_size = get_viewport().size

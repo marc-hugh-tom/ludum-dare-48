@@ -9,7 +9,7 @@ const MineResource = preload("res://Scenes/Mine/Mine.tscn")
 onready var global = get_tree().get_root().get_node("GlobalVariables")
 
 func _ready():
-	pass#$Timer.start()
+	$Timer.start()
 
 
 func spawn_mine(position = null, boss = null):
