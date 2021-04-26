@@ -29,6 +29,8 @@ func _process(delta):
 		$Shop.show()
 	update_explosions(delta)
 	update_blood()
+	if global.is_max_depth():
+		$HUD/BossHealth.show()
 
 func _on_Shop_close():
 	toggle_pause()
