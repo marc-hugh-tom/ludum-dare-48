@@ -135,12 +135,12 @@ orbit_velocity_random = 0.0
 scale = 0.2
 scale_random = 0.2
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=2]
 size = 60
 outline_size = 5
 font_data = ExtResource( 6 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 121 ) ],
 "loop": false,
@@ -163,12 +163,11 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 24.2429
 height = 272.726
 
-[sub_resource type="Animation" id=3]
-resource_name = "died"
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -188,7 +187,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
@@ -264,7 +263,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.5 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
@@ -372,6 +371,11 @@ animations = [ {
 "name": "r",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 69 ), ExtResource( 71 ), ExtResource( 48 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 22 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 59 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 57 ) ],
+"loop": true,
+"name": "l_to_r",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 69 ) ],
 "loop": true,
 "name": "l",
@@ -380,11 +384,6 @@ animations = [ {
 "frames": [ ExtResource( 57 ), ExtResource( 61 ), ExtResource( 62 ), ExtResource( 64 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 63 ), ExtResource( 9 ), ExtResource( 70 ), ExtResource( 73 ), ExtResource( 72 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 68 ), ExtResource( 10 ), ExtResource( 69 ) ],
 "loop": true,
 "name": "r_to_l",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 69 ), ExtResource( 71 ), ExtResource( 48 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 22 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 59 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 58 ), ExtResource( 57 ) ],
-"loop": true,
-"name": "l_to_r",
 "speed": 5.0
 } ]
 
@@ -488,7 +487,7 @@ __meta__ = {
 [node name="Title" type="Label" parent="Column"]
 margin_right = 896.0
 margin_bottom = 68.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.917647, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0.34902, 0.360784, 0.419608, 1 )
 text = "CONTROLS"
@@ -572,10 +571,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text7" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+[node name="ShopNote" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
 margin_top = 215.0
 margin_right = 438.0
 margin_bottom = 238.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
+text = "USE [I] TO ENTER SHOP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text7" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
+margin_top = 258.0
+margin_right = 438.0
+margin_bottom = 281.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
 text = "Watch out for enemies"
@@ -585,9 +596,9 @@ __meta__ = {
 }
 
 [node name="Text6" type="Label" parent="Column/HBoxContainer/VBoxContainer"]
-margin_top = 258.0
+margin_top = 301.0
 margin_right = 438.0
-margin_bottom = 281.0
+margin_bottom = 324.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
 text = "Good Luck!"
@@ -619,7 +630,7 @@ position = Vector2( 224, 192 )
 scale = Vector2( 0.33, 0.33 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="sub"]
-frames = SubResource( 6 )
+frames = SubResource( 3 )
 animation = "l"
 
 [node name="Turret" parent="sub" instance=ExtResource( 76 )]
@@ -629,12 +640,12 @@ scale = Vector2( 0.5, 0.5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sub"]
 position = Vector2( 10.9848, -25.3788 )
 rotation = -1.5708
-shape = SubResource( 7 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="sub"]
-anims/died = SubResource( 3 )
-anims/flip_l_r = SubResource( 4 )
-anims/flip_r_l = SubResource( 5 )
+anims/died = SubResource( 5 )
+anims/flip_l_r = SubResource( 6 )
+anims/flip_r_l = SubResource( 7 )
 
 [node name="Particles2D" parent="sub" instance=ExtResource( 113 )]
 position = Vector2( 69.697, -42.4242 )
@@ -692,7 +703,7 @@ shape = SubResource( 15 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Mine"]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 16 )
-frame = 25
+frame = 14
 playing = true
 
 [connection signal="body_entered" from="Mine" to="Mine" method="_on_Mine_body_entered"]
