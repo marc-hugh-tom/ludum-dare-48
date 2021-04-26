@@ -20,8 +20,12 @@ func fire_once(source):
 
 func fire(source):
 	$Timer.start()
-	$AudioStreamPlayer2D.play()
+	$Launch.play()
 	var torpedo = Torpedo.instance()
 	torpedo.foreground_ref = foreground_ref
 	torpedo.start(global_position, get_parent().rotation)
 	foreground_ref.add_child(torpedo)
+
+
+func _on_Timer_timeout():
+	$Ready.play()
