@@ -9,7 +9,7 @@
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 3 )
 
-[node name="body" type="KinematicBody2D" parent="."]
+[node name="body" type="Area2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="body"]
@@ -20,7 +20,7 @@ polygon = PoolVector2Array( -452.112, 144.319, -291.931, -10.5226, -290.596, -15
 
 [node name="spawn_position" type="Node2D" parent="body"]
 
-[node name="left_arm" type="KinematicBody2D" parent="."]
+[node name="left_arm" type="Area2D" parent="."]
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="left_arm"]
@@ -33,7 +33,7 @@ polygon = PoolVector2Array( -609.623, 165.676, -648.333, 9.49994, -651.003, -142
 [node name="spawn_position" type="Node2D" parent="left_arm"]
 position = Vector2( -576.945, -263.779 )
 
-[node name="right_arm" type="KinematicBody2D" parent="."]
+[node name="right_arm" type="Area2D" parent="."]
 scale = Vector2( -1, 1 )
 script = ExtResource( 4 )
 
@@ -46,3 +46,7 @@ polygon = PoolVector2Array( -609.623, 165.676, -648.333, 9.49994, -651.003, -142
 
 [node name="spawn_position" type="Node2D" parent="right_arm"]
 position = Vector2( -569.088, -283.983 )
+
+[connection signal="on_damage" from="body" to="." method="_on_body_on_damage"]
+[connection signal="on_damage" from="left_arm" to="." method="_on_left_arm_on_damage"]
+[connection signal="on_damage" from="right_arm" to="." method="_on_right_arm_on_damage"]
