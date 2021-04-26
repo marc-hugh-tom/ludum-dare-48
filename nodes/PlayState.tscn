@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scenes/Shop/Shop.tscn" type="PackedScene" id=14]
 [ext_resource path="res://nodes/ui/SubMenuFont.tres" type="DynamicFont" id=15]
 [ext_resource path="res://nodes/BossHealth.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Boss/BossSpawner.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("ViewportContainer/Viewport")
@@ -55,6 +56,10 @@ audio_listener_enable_2d = true
 [node name="MineSpawner" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 8 )]
 
 [node name="EnemySpawner" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 3 )]
+player_path = NodePath("../sub")
+
+[node name="boss_spawner" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 17 )]
+visible = false
 player_path = NodePath("../sub")
 
 [node name="sub" parent="ViewportContainer/Viewport/Foreground" instance=ExtResource( 1 )]

@@ -75,6 +75,10 @@ func spawn_enemy_formation():
 		get_parent().add_child(enemy)
 
 func _on_Timer_timeout():
+	if global.is_max_depth():
+		$Timer.stop()
+		return
+	
 	spawn_enemy_formation()
 	var wait_time = rand_range(
 		MIN_SPAWN_SECONDS,
