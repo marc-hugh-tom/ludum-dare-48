@@ -91,6 +91,7 @@ position = Vector2( 298.5, 48 )
 position = Vector2( 340, 15.874 )
 
 [node name="BossHealth" parent="HUD" instance=ExtResource( 16 )]
+visible = false
 
 [node name="DiedMenu" type="Node2D" parent="."]
 visible = false
@@ -273,6 +274,7 @@ text = "Quit"
 pause_mode = 2
 visible = false
 
+[connection signal="boss_damage" from="ViewportContainer/Viewport/Foreground/boss_spawner" to="HUD/BossHealth" method="_on_boss_spawner_boss_damage"]
 [connection signal="damage_taken" from="ViewportContainer/Viewport/Foreground/sub" to="HUD/HullIntegrity" method="_on_sub_damage_taken"]
 [connection signal="close" from="Shop" to="." method="_on_Shop_close"]
 [connection signal="on_repair" from="Shop" to="HUD/HullIntegrity" method="_on_Shop_on_repair"]
