@@ -241,6 +241,7 @@ margin_right = 691.0
 margin_bottom = 99.0
 item_name = "Primary: Sub Gun"
 cost = 20
+weapon_name = "Sub Gun"
 
 [node name="DepthCharges" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
 margin_top = 94.0
@@ -248,6 +249,7 @@ margin_right = 691.0
 margin_bottom = 146.0
 item_name = "Secondary: Depth Charges"
 cost = 30
+weapon_name = "Depth Charges"
 
 [node name="AquaRocket" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
 margin_top = 141.0
@@ -255,6 +257,7 @@ margin_right = 691.0
 margin_bottom = 193.0
 item_name = "Secondary: Aqua Rocket"
 cost = 40
+weapon_name = "Aqua Rocket"
 
 [node name="TorpedoTube" parent="ShopContainer/MarginContainer/VBoxContainer/main_container/items_for_sale/sale_items" instance=ExtResource( 5 )]
 margin_top = 188.0
@@ -262,6 +265,7 @@ margin_right = 691.0
 margin_bottom = 240.0
 item_name = "Tertiary: Torpedo Tube"
 cost = 50
+weapon_name = "Torpedo Tube"
 
 [connection signal="visibility_changed" from="." to="." method="_on_Shop_visibility_changed"]
 [connection signal="pressed" from="ShopContainer/MarginContainer/VBoxContainer/menu_bar/close" to="." method="_on_TextureButton_pressed"]
