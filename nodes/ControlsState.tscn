@@ -135,7 +135,7 @@ orbit_velocity_random = 0.0
 scale = 0.2
 scale_random = 0.2
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=17]
 size = 60
 outline_size = 5
 font_data = ExtResource( 6 )
@@ -488,7 +488,7 @@ __meta__ = {
 [node name="Title" type="Label" parent="Column"]
 margin_right = 896.0
 margin_bottom = 68.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 0.917647, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0.34902, 0.360784, 0.419608, 1 )
 text = "CONTROLS"
