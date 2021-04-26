@@ -20,6 +20,8 @@ func _process(delta):
 		$Shop.arsenal = $ViewportContainer/Viewport/Foreground/sub.get_node("Arsenal")
 		$Shop.show()
 	update_explosions(delta)
+	if global.is_max_depth():
+		$HUD/BossHealth.show()
 
 func _on_Shop_close():
 	toggle_pause()
