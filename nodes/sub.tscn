@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/sub.gd" type="Script" id=1]
 [ext_resource path="res://assets/sub/sprites/sub_00.png" type="Texture" id=2]
@@ -33,14 +33,14 @@ animations = [ {
 "name": "l",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": false,
-"name": "flip_l_r",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "flip_r_l",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "flip_l_r",
 "speed": 20.0
 } ]
 
@@ -49,7 +49,27 @@ radius = 24.2429
 height = 272.726
 
 [sub_resource type="Animation" id=3]
-resource_name = "flip_l_r"
+resource_name = "died"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "explode"
+}, {
+"args": [  ],
+"method": "trigger_end_game"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
@@ -125,8 +145,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.5 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "flip_r_l"
+[sub_resource type="Animation" id=5]
 length = 0.8
 step = 0.05
 tracks/0/type = "value"
@@ -208,10 +227,10 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "r"
+animation = "l"
 
 [node name="Turret" parent="." instance=ExtResource( 3 )]
-position = Vector2( 94.8305, -45.4095 )
+position = Vector2( -89.7729, -45.8108 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -220,10 +239,11 @@ rotation = -1.5708
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/flip_l_r = SubResource( 3 )
-anims/flip_r_l = SubResource( 4 )
+anims/died = SubResource( 3 )
+anims/flip_l_r = SubResource( 4 )
+anims/flip_r_l = SubResource( 5 )
 
 [node name="Particles2D" parent="." instance=ExtResource( 17 )]
-position = Vector2( -69.697, -42.424 )
+position = Vector2( 69.697, -42.4242 )
 
 [node name="Arsenal" parent="." instance=ExtResource( 18 )]

@@ -282,8 +282,9 @@ var impulse_dampen = ImpulseDampen.new()
 var motion := Vector2(0.0, 0.0)
 var impulse_force := Vector2(0.0, 0.0)
 
-var health = 100.0
 signal damage_taken
+
+const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
 
 func _ready():
 	self.vertical_movement_graph = VerticalMovementGraph.new(self)
@@ -307,6 +308,17 @@ func impulse(force: Vector2):
 func take_damage(amount):
 	global.decrement_health(amount)
 	emit_signal("damage_taken", amount)
+	if global.get_health() <= 0:
+		$AnimationPlayer.play("died")
 
 func is_player():
 	return(true)
+
+func explode():
+	var explosion = ExplosionResource.instance()
+	explosion.position = position
+	get_parent().call_deferred("add_child", explosion)
+	hide()
+
+func trigger_end_game():
+	get_tree().call_group("playstate", "player_died")
