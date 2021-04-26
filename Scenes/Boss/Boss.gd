@@ -419,6 +419,7 @@ func _physics_process(delta: float):
 	
 func on_damage(amount):
 	emit_signal("damage", amount)
+	$AnimationPlayer.play("flash")
 	global.decrement_boss_health(amount)
 
 func _on_body_on_damage(amount):
