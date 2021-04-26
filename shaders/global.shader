@@ -19,9 +19,9 @@ const float blood_blur = 200.0;
 void fragment() {
 	vec2 corrected_uv = vec2(UV.x, 1.0-UV.y);
 	vec2 resolution = vec2(textureSize(viewport_texture, 0));
-	
+
 	ivec2 data_size = textureSize(data_texture, 0);
-	
+
 	vec2 disp = vec2(0.0, 0.0);
 	if (!no_explosion) {
 		float mask = 0.0;
@@ -36,13 +36,13 @@ void fragment() {
 			disp = disp + normalize(corrected_uv*resolution - center) * force * mask;
 		}
 	}
-	
+
 	float bloodmask = smoothstep(
 		resolution.y*(1.0-mix(0.8, 1.0, blood_intensity))+blood_max_size-blood_blur,
 		resolution.y*(1.0-mix(0.8, 1.0, blood_intensity))+blood_max_size, 
 		length(UV*resolution - resolution/2.0));
 	vec4 blood_value = 1.0 - texture(retina_texture, vec2(UV.x, UV.y*(resolution.y/resolution.x)));
-	
+
 	COLOR = texture(viewport_texture, corrected_uv - disp) + 
 		 blood_value/2.0 * blood_intensity * blood_col * bloodmask;
 }
