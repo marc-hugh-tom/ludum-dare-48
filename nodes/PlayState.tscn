@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://nodes/sub.tscn" type="PackedScene" id=1]
 [ext_resource path="res://nodes/ScrapCounter.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://nodes/ui/ButtonTheme.tres" type="Theme" id=13]
 [ext_resource path="res://Scenes/Shop/Shop.tscn" type="PackedScene" id=14]
 [ext_resource path="res://nodes/ui/SubMenuFont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://nodes/BossHealth.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("ViewportContainer/Viewport")
@@ -79,6 +80,8 @@ position = Vector2( 298.5, 48 )
 
 [node name="WeaponIndicator" parent="HUD" instance=ExtResource( 9 )]
 position = Vector2( 340, 15.874 )
+
+[node name="BossHealth" parent="HUD" instance=ExtResource( 16 )]
 
 [node name="DiedMenu" type="Node2D" parent="."]
 visible = false
