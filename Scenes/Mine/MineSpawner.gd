@@ -38,6 +38,10 @@ func select_spawn_point() -> Vector2:
 
 
 func _on_Timer_timeout():
+	if global.is_max_depth():
+		$Timer.stop()
+		return
+	
 	spawn_mine()
 
 	var wait_time = rand_range(
