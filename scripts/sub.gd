@@ -282,7 +282,6 @@ var impulse_dampen = ImpulseDampen.new()
 var motion := Vector2(0.0, 0.0)
 var impulse_force := Vector2(0.0, 0.0)
 
-var health = 100.0
 signal damage_taken
 
 const ExplosionResource = preload("res://Scenes/Explosion/Explosion.tscn")
@@ -309,7 +308,7 @@ func impulse(force: Vector2):
 func take_damage(amount):
 	global.decrement_health(amount)
 	emit_signal("damage_taken", amount)
-	if health <= 0:
+	if global.get_health() <= 0:
 		$AnimationPlayer.play("died")
 
 func is_player():
