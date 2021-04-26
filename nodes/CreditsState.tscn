@@ -61,13 +61,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.34902, 0.360784, 0.419608, 1 )
-text = "Design, programming, and art
+text = "
+Design, programming, and art
 Hugh Grigg
 Marc Jones
 Tom Craven
 
-Music
-Tom Craven
+
 
 A wide range of images, sounds, and fonts were used in this project.
 For a full list of attributions, please see the game's GitHub repository:
