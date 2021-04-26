@@ -5,6 +5,7 @@ onready var turret = sub.get_node("Turret")
 
 const WeaponResources = {
 	"HarpoonGun": preload("res://Scenes/Weapons/HarpoonGun.tscn"),
+	"SubGun": preload("res://Scenes/Weapons/SubGun.tscn"),
 	"DepthChares": preload("res://Scenes/Weapons/Blunderbuss.tscn"),
 	"TorpedoTube": preload("res://Scenes/Weapons/TorpedoTube.tscn")
 }
