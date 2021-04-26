@@ -9,7 +9,7 @@ func _ready():
 
 
 func get_weapon_name():
-	return "Blunderbuss"
+	return "Depth Charges"
 
 func firing(source):
 	if $Timer.is_stopped():
@@ -17,12 +17,12 @@ func firing(source):
 
 
 func fire(source):
-	print("blunderbuss fire")
 	$Timer.start()
 	$AudioStreamPlayer2D.play()
-	var spread = PI*0.01
+	var spread = PI*0.05
 	var rotation = get_parent().rotation - spread
 	for i in 3:
 		var shrapnel = Shrapnel.instance()
 		shrapnel.start(global_position, rotation + (i*spread), source)
 		foreground_ref.add_child(shrapnel)
+		shrapnel.foreground_ref = foreground_ref

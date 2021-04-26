@@ -5,6 +5,7 @@ var rotation_speed = 1.5
 var ref_vec = Vector2.UP
 var collision_shape_starting_pos = Vector2(0, 30)
 var particles_starting_pos = Vector2(0, 60)
+var health = 15
 
 ######################################
 
@@ -85,6 +86,8 @@ func generate_scrap():
 	get_parent().call_deferred("add_child", scrap)
 
 func take_damage(amount: int = 0):
-	if not exploded_bool:
-		generate_scrap()
-	explode()
+	health -= amount
+	if health <= 0:
+		if not exploded_bool:
+			generate_scrap()
+		explode()
