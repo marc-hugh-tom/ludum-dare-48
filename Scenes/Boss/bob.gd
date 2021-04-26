@@ -1,9 +1,11 @@
-extends Node2D
+extends Area2D
 
 onready var position_factors = [rand_range(1.8, 2.5), rand_range(50, 70)]
 onready var rotation_factors = [rand_range(1.2, 1.8), rand_range(30, 50)]
 
 var bob_timer = 0.0
+
+signal on_damage
 
 func _physics_process(delta: float):
 	bob_timer += delta
@@ -12,3 +14,6 @@ func _physics_process(delta: float):
 
 func is_boss():
 	return true
+
+func take_damage(amount):
+	emit_signal("on_damage", amount)

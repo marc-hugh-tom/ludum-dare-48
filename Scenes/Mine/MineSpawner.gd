@@ -12,9 +12,13 @@ func _ready():
 	$Timer.start()
 
 
-func spawn_mine():
+func spawn_mine(position = null, boss = null):
 	var mine = MineResource.instance()
-	mine.position = select_spawn_point()
+	if position == null:
+		mine.position = select_spawn_point()
+	else:
+		mine.position = position
+	mine.boss = boss
 	get_parent().add_child(mine)
 
 
@@ -43,3 +47,9 @@ func _on_Timer_timeout():
 	
 	$Timer.wait_time = wait_time
 	$Timer.start()
+
+
+func _on_boss_spawn_mine(params):
+	var position = params[0]
+	var boss = params[1]
+	spawn_mine(position, boss)
