@@ -22,8 +22,8 @@ func _process(delta):
 		update_timer -= delta
 	if update_timer <= 0:
 		lag_value -= (lag_value - current_value) * update_speed
-	meter.get_material().set_shader_param("current_value", current_value)
-	meter.get_material().set_shader_param("lag_value", lag_value)
+	meter.get_material().set_shader_param("current_value", current_value / global.max_boss_health * 100.0)
+	meter.get_material().set_shader_param("lag_value", lag_value / global.max_boss_health * 100.0)
 
 func _on_boss_spawner_boss_damage(amount):
 	take_damage(amount)
