@@ -297,9 +297,9 @@ func _physics_process(delta: float):
 	horizontal_movement_graph.physics_process(delta, self)
 	bob.physics_process(delta, self)
 	impulse_dampen.physics_process(delta, self)
-	if $AnimatedSprite.get_animation() == 'l' and self.motion.x < 0:
+	if global.get_health() > 0 and $AnimatedSprite.get_animation() == 'l' and self.motion.x < 0:
 		$AnimationPlayer.play("flip_l_r")
-	elif $AnimatedSprite.get_animation() == 'r' and self.motion.x > 0:
+	elif global.get_health() > 0 and $AnimatedSprite.get_animation() == 'r' and self.motion.x > 0:
 		$AnimationPlayer.play("flip_r_l")
 	self.position += self.motion
 	self.position += self.impulse_force
