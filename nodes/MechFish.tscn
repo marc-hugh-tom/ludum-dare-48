@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/MechFish.gd" type="Script" id=1]
 [ext_resource path="res://assets/bubble.png" type="Texture" id=2]
@@ -60,6 +60,22 @@ orbit_velocity_random = 0.0
 scale = 0.2
 scale_random = 0.2
 
+[sub_resource type="Animation" id=4]
+resource_name = "damage"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 100, 100, 100, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="MechFish" type="KinematicBody2D"]
 collision_layer = 5
 script = ExtResource( 1 )
@@ -79,3 +95,6 @@ lifetime = 4.0
 local_coords = false
 process_material = SubResource( 3 )
 texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 4 )

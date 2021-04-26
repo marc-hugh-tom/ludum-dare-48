@@ -5,8 +5,8 @@ const Explosion = preload("res://Scenes/Explosion/Explosion.tscn")
 var foreground_ref
 
 var fire_source = null
-var launch_speed = 350
-var fall_speed = 650
+var launch_speed = 300
+var fall_speed = 700
 var velocity = Vector2()
 
 func start(pos, dir, source):

@@ -237,6 +237,7 @@ var health = 50.0
 var has_exploded = false
 
 func take_damage(damage):
+	$AnimationPlayer.play("damage")
 	health -= damage
 	if health <= 0.0 and not has_exploded:
 		has_exploded = true

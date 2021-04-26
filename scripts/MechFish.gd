@@ -87,6 +87,7 @@ func generate_scrap():
 	get_parent().call_deferred("add_child", scrap)
 
 func take_damage(amount: int = 0):
+	$AnimationPlayer.play("damage")
 	health -= amount
 	if health <= 0:
 		if not exploded_bool:
