@@ -29,4 +29,7 @@ Link: https://incompetech.filmmusic.io/song/5028-rising-tide-faster-
 
 License: https://filmmusic.io/standard-license
 
+## Notes
 
+To comply with the music license, the track is not included with the project and will need to be downloaded from the above link.
+Place the track in the `assets/music` directory before opening the project. 
